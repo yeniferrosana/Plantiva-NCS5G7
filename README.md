@@ -1,6 +1,6 @@
 # S5-G7
 
-### Pasos para correr el proyecto 
+### Pasos para correr el proyecto
 
 Primero clonamos el proyecto en tu maquina local e instalamos las dependecias necesarias para el proyecto con
 
@@ -20,4 +20,3 @@ y luego ejecutamos el proyecto en modo local con el siguiente comando
 ```
 yarn dev
 ```
-

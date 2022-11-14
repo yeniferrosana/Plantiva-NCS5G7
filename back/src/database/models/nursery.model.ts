@@ -1,17 +1,21 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
-export interface UserDocument extends mongoose.Document {
+export interface NurseryDocument extends mongoose.Document {
   username: string;
   birthdate: Date;
   img: string;
   social: string;
   email: string;
   password: string;
+  telephone: number;
+  province: string;
+  city: string;
+  address: string;
   role: number;
 }
 
-const userSchema = new mongoose.Schema(
+const nurserySchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -53,6 +57,27 @@ const userSchema = new mongoose.Schema(
         "password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and special characters",
       ],
     },
+    telephone: {
+      type: Number,
+      maxlength: 20,
+      required: false,
+      unique: true,
+    },
+    province: {
+      type: String,
+      maxlength: 20,
+      required: false,
+    },
+    city: {
+      type: String,
+      maxlength: 20,
+      required: false,
+    },
+    adress: {
+      type: String,
+      maxlength: 50,
+      required: false,
+    },
     role: {
       type: Number,
       default: 0,
@@ -61,24 +86,24 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-userSchema.pre("save", async function (next) {
-  let user = this;
+nurserySchema.pre("save", async function (next) {
+  let nursery = this;
 
-  if (!user.isModified("password")) {
+  if (!nursery.isModified("password")) {
     return next();
   }
 
   try {
     const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hashSync(user.password, salt);
+    const hash = await bcrypt.hashSync(nursery.password, salt);
 
-    user.password = hash;
+    nursery.password = hash;
     return next();
   } catch (err: any) {
     throw new Error("Error hashing \n" + err);
   }
 });
 
-const UserModel = mongoose.model<UserDocument>("User", userSchema);
+const NurseryModel = mongoose.model<NurseryDocument>("Nursery", nurserySchema);
 
-export default UserModel;
+export default NurseryModel;

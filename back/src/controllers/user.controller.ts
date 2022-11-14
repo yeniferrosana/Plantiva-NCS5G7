@@ -4,7 +4,7 @@ import {
   findAll,
   findById,
   validatePassword,
-} from "../service/user.service";
+} from "../services/user.service";
 
 //register controller
 export const registerUser = async (req: Request, res: Response) => {
@@ -16,9 +16,8 @@ export const registerUser = async (req: Request, res: Response) => {
     }
 
     const newUser = { username, email, password };
-    console.log(newUser);
+
     const user = await createUser(newUser);
-    console.log(user);
 
     return res.send(user);
   } catch (err: any) {
@@ -37,6 +36,7 @@ export const loginUser = async (req: Request, res: Response) => {
     const userValidation = { email, password };
 
     const validate = await validatePassword(userValidation);
+    
     if (!validate) {
       return res.status(401).send("Wrong email or password");
     }
@@ -63,7 +63,7 @@ export const getUserById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
-    const user = await findById(id);   
+    const user = await findById(id);
 
     return res.send(user);
   } catch (err: any) {

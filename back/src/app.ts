@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import config from "config";
-import userRoutes from "./routes/user.routes";
 
 //init app. define and set port
 const app = express();
@@ -13,6 +12,9 @@ app.set("port", port);
 app.use(express.json());
 
 //routes
-app.use("/user", userRoutes)
+import userRoutes from "./routes/user.routes";
+import nurseryRoutes from "./routes/nursery.routes";
+app.use("/user", userRoutes);
+app.use("/nursery", nurseryRoutes);
 
 export default app;

@@ -22,7 +22,7 @@ yarn dev
 
 ### Nota:
 
-* Seguir esta nomenclatura para la creación de componentes como ejemplo:
+- Seguir esta nomenclatura para la creación de componentes como ejemplo:
 
   Poner un prefijo SP(Sistema de plantas) solo para una convención y dar mejor orden a los componentes
 
@@ -30,4 +30,4 @@ yarn dev
   SPFooter.vue
   ```
 
-* Para este proyecto se esta utilizando prettier, eslint y husky que se encargaran del estilo de codigo y formateo del codigo y además que esos procesos se realizarán cuando hagamos commits y pusheamos nuestros cambios al repositorio remoto
+- Para este proyecto se esta utilizando prettier, eslint y husky que se encargaran del estilo de codigo y formateo del codigo y además que esos procesos se realizarán cuando hagamos commits y pusheamos nuestros cambios al repositorio remoto

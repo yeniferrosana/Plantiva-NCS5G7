@@ -60,23 +60,23 @@ const nurserySchema = new mongoose.Schema(
     telephone: {
       type: Number,
       maxlength: 20,
-      required: false,
+      required: true,
       unique: true,
     },
     province: {
       type: String,
       maxlength: 20,
-      required: false,
+      required: true,
     },
     city: {
       type: String,
       maxlength: 20,
-      required: false,
+      required: true,
     },
     adress: {
       type: String,
       maxlength: 50,
-      required: false,
+      required: true,
     },
     role: {
       type: Number,

@@ -1,13 +1,16 @@
 import { Router } from "express";
+import { getNurseryById, getNursery, loginNursery, registerNursery, putNursery } from "../controllers/nursery.controller";
 
 const nurseryRoutes = Router();
 
-nurseryRoutes.post("/register");
+nurseryRoutes.post("/register", registerNursery);
 
-nurseryRoutes.post("/login");
+nurseryRoutes.post("/login", loginNursery);
 
-nurseryRoutes.get("/");
+nurseryRoutes.get("/", getNursery);
 
-nurseryRoutes.get("/:id");
+nurseryRoutes.get("/:id", getNurseryById);
+
+nurseryRoutes.put("/:id", putNursery);
 
 export default nurseryRoutes;

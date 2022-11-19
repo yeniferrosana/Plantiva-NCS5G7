@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-interface PlantsInfo {
+type PlantsInfo = {
   other_names: string;
   habit: string;
   height: number;
@@ -8,19 +8,28 @@ interface PlantsInfo {
   foliage: string;
   attractive: string;
   irrigation: string;
-}
+};
 
-export interface PlantsDocument extends PlantsInfo, mongoose.Document {
+type PlantsLocation = {
+  province: string;
+  //region: string;
+};
+
+export interface Plant {
   title: string;
   info: PlantsInfo;
   imgs: string[];
+  location: PlantsLocation;
 }
+
+export interface PlantsDocument extends Plant, mongoose.Document {}
 
 const plantsSchema = new mongoose.Schema(
   {
     title: { type: String, required: false },
-    info: { type: String, required: false },
+    info: { type: Object, required: false },
     imgs: { type: Array, required: false },
+    location: { type: Object, required: false },
   },
   { timestamps: true }
 );

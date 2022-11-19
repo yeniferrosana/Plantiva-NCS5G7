@@ -1,4 +1,15 @@
 import PlantsModel from "../database/models/plants.model";
+import { Plant } from "../database/models/plants.model";
+
+export const createPlant = async (input: Plant) => {
+  try {
+    const plant = await PlantsModel.create(input);
+
+    return plant;
+  } catch (err: any) {
+    throw new Error(err);
+  }
+};
 
 export const findAll = async () => {
   try {

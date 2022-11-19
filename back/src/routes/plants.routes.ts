@@ -1,9 +1,12 @@
 import { Router } from "express";
+import { getPlantById, getPlants, newPlant } from "../controllers/plants.controller";
 
 const plantsRoutes = Router();
 
-plantsRoutes.get("/", );
+plantsRoutes.post("/new", newPlant);
 
-plantsRoutes.get("/:id",);
+plantsRoutes.get("/", getPlants);
+
+plantsRoutes.get("/:id", getPlantById);
 
 export default plantsRoutes;

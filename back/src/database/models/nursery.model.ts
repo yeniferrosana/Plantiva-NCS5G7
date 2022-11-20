@@ -11,7 +11,7 @@ export interface NurseryDocument extends mongoose.Document {
   telephone: number;
   province: string;
   city: string;
-  address: string;
+  adress: string;
   role: number;
 }
 
@@ -71,7 +71,7 @@ const nurserySchema = new mongoose.Schema(
     city: {
       type: String,
       maxlength: 20,
-      required: true,
+      required: false,
     },
     adress: {
       type: String,

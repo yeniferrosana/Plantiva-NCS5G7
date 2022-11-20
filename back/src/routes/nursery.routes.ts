@@ -11,6 +11,6 @@ nurseryRoutes.get("/", getNursery);
 
 nurseryRoutes.get("/:id", getNurseryById);
 
-nurseryRoutes.put("/:id", putNursery);
+nurseryRoutes.put("/editnursery/:id", putNursery);
 
 export default nurseryRoutes;

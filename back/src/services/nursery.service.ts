@@ -58,3 +58,14 @@ export const findById = async (id: string) => {
     throw new Error(err);
   }
 };
+
+// Update Nursery
+export const updateNursery = async (id: string, input: {}) =>{
+  try {
+    const userNursery = await NurseryModel.findByIdAndUpdate({_id: id}, input, {new:true});
+    return userNursery
+    
+  } catch (err: any) {
+    throw new Error(err);
+  }
+}

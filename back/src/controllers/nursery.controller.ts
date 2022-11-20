@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { createuserNursery, validatePassword, findAll, findById } from '../services/nursery.service';
+import bcrypt from "bcrypt";
+import { createuserNursery, validatePassword, findAll, findById, updateNursery } from '../services/nursery.service';
 
 //register controller
 export const registerNursery = async (req: Request, res: Response) => {
@@ -69,28 +70,23 @@ export const getNurseryById = async (req: Request, res: Response) => {
 // Nursery Update
 export const putNursery = async (req:Request, res:Response) => {
     const { id } = req.params;
-    const { username, birthdate, email, telephone, province, ctiy, adress } = req.body;
-
+    const { email, username, telephone, province, city, adress, password } = req.body;
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hashSync(password, salt);
+    const newEdit = {
+        email,
+        username,
+        telephone,
+        province,
+        city,
+        adress,
+        password: hash
+    };
     try {
-        const nursery = await findById(id);
-        if (nursery) {
-            await nursery.update({
-                username: req.body,
-                birthdate: req.body,
-                email: req.body,
-                telephone: req.body,
-                province: req.body,
-                city: req.body,
-                adress: req.body
-            })
-            res.json({
-                message: "Registro se actualizo correctamente"
-            })
-        }
-    } catch (error) {
-        res.status(404).json({
-            message: `No existe el usuario con el id ${id}`
-        })
+        
+        const nurseryId = await updateNursery(id, newEdit);
+        return res.send(nurseryId);
+    } catch (err: any) {
+        return res.status(404).send("User not actualized");
     }
 }
-  

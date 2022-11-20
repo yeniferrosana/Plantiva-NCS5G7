@@ -1,9 +1,11 @@
 import { Request, Response } from "express";
+import bcrypt from "bcrypt";
 import {
   createUser,
   findAll,
   findById,
   validatePassword,
+  updateUser
 } from "../services/user.service";
 
 //register controller
@@ -70,3 +72,24 @@ export const getUserById = async (req: Request, res: Response) => {
     return res.status(404).send("User not found");
   }
 };
+
+// Nursery Update
+export const putUser = async (req:Request, res:Response) => {
+  const { id } = req.params;
+  const { email, username, password, birthdate } = req.body;
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hashSync(password, salt);
+  const newEdit = {
+      email,
+      username,
+      password: hash,
+      birthdate
+  };
+  try {
+      
+      const userId = await updateUser(id, newEdit);
+      return res.send(userId);
+  } catch (err: any) {
+      return res.status(404).send("User not actualized");
+  }
+}

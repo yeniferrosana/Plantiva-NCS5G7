@@ -18,15 +18,17 @@ function redirectToRegister() {
       type="email"
       placeholder="Email"
     />
+    <SPText class="hidden">Este no es un correo </SPText>
     <SPInput
-      class="mt-2 p-2 border rounded-sm"
+      class="mt-4 p-2 border rounded-sm"
       type="password"
       placeholder="12345648"
     />
-    <SPButton class="text-sac-200 text-sm mt-2 bg-stone-500 p-2 rounded-md"
+    <SPText class="hidden">Este no es una contraseña</SPText>
+    <SPButton class="text-sac-200 mt-10 bg-stone-500 p-2 rounded-md font-bold text-xl"
       >INGRESAR</SPButton
     >
-    <div class="mt-4 flex gap-2">
+    <div class="mt-6 flex gap-2">
       <SPText class="text-sm">¿Aun no tienes una cuenta?</SPText>
       <SPButton type="button" class="text-sm" @click="redirectToRegister"
         >REGISTRARME</SPButton

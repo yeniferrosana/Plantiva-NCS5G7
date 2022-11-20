@@ -13,7 +13,7 @@ const store = useCounterStore();
   <div class="modal w-2/4 fixed top-1/4 left-1/4 z-10">
     <div class="modal-header"></div>
     <div class="modal-body">
-      <SPLoginForm class="bg-zinc-800" />
+      <SPLoginForm class="bg-zinc-600" />
     </div>
   </div>
 </template>

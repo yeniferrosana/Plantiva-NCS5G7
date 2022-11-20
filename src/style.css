@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-  body{
-    background-color: #ECE8D4;
+@layer base {
+  body {
+    background-color: #ece8d4;
     box-sizing: border-box;
   }
 }

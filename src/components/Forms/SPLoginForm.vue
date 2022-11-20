@@ -25,7 +25,8 @@ function redirectToRegister() {
       placeholder="12345648"
     />
     <SPText class="hidden">Este no es una contraseña</SPText>
-    <SPButton class="text-sac-200 mt-10 bg-stone-500 p-2 rounded-md font-bold text-xl"
+    <SPButton
+      class="text-sac-200 mt-10 bg-stone-500 p-2 rounded-md font-bold text-xl"
       >INGRESAR</SPButton
     >
     <div class="mt-6 flex gap-2">

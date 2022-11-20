@@ -11,11 +11,13 @@ const store = useCounterStore();
   >
     <div class="card-media relative">
       <img
-      class="block w-full"
-      src="https://picsum.photos/id/237/300/300"
-      alt=""
+        class="block w-full"
+        src="https://picsum.photos/id/237/300/300"
+        alt=""
       />
-      <SPCardOptions class="card-options absolute right-4 top-4 opacity-0 transition duration-700"/>
+      <SPCardOptions
+        class="card-options absolute right-4 top-4 opacity-0 transition duration-700"
+      />
     </div>
     <div class="card-body p-3">
       <SPText tag="h1" class="font-bold">Nombre de prueba</SPText>
@@ -30,7 +32,7 @@ const store = useCounterStore();
   </div>
 </template>
 <style scoped>
-.card-media:hover > .card-options{
+.card-media:hover > .card-options {
   transition: all 700ms;
   opacity: 1;
 }

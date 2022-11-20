@@ -1,5 +1,5 @@
-import bcrypt from "bcrypt";
 import UserModel from "../database/models/user.model";
+import { comparePassword } from "../utils/jwt";
 
 //funcion para crear un usuario en la bbdd
 export const createUser = async (input: {}) => {
@@ -24,16 +24,12 @@ export const validatePassword = async ({
   //busco user por email
   const user = await UserModel.findOne({ email: email });
 
-  if (!user) {
-    return false;
-  }
+  if (!user) return false;
 
   //comparo pwd
-  const isValid = await bcrypt.compare(password, user.password);
+  const validate = await comparePassword(password, user.password);
 
-  if (!isValid) {
-    return false;
-  }
+  if (!validate) return false;
 
   return user;
 };
@@ -59,14 +55,14 @@ export const findById = async (id: string) => {
   }
 };
 
-
 // Update User
-export const updateUser = async (id: string, input: {}) =>{
+export const updateUser = async (id: string, input: {}) => {
   try {
-    const user = await UserModel.findByIdAndUpdate({_id: id}, input, {new:true});
-    return user
-    
+    const user = await UserModel.findByIdAndUpdate({ _id: id }, input, {
+      new: true,
+    });
+    return user;
   } catch (err: any) {
     throw new Error(err);
   }
-}
+};

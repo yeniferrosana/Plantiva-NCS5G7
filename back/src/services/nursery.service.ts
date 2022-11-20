@@ -1,5 +1,5 @@
-import bcrypt from "bcrypt";
 import NurseryModel from "../database/models/nursery.model";
+import { comparePassword } from "../utils/jwt";
 
 //funcion para crear un usuario en la bbdd
 export const createuserNursery = async (input: {}) => {
@@ -24,16 +24,12 @@ export const validatePassword = async ({
   //busco userNursery por email
   const userNursery = await NurseryModel.findOne({ email: email });
 
-  if (!userNursery) {
-    return false;
-  }
+  if (!userNursery) return false;
 
   //comparo pwd
-  const isValid = await bcrypt.compare(password, userNursery.password);
+  const validate = await comparePassword(password, userNursery.password);
 
-  if (!isValid) {
-    return false;
-  }
+  if (!validate) return false;
 
   return userNursery;
 };
@@ -60,12 +56,15 @@ export const findById = async (id: string) => {
 };
 
 // Update Nursery
-export const updateNursery = async (id: string, input: {}) =>{
+export const updateNursery = async (id: string, input: {}) => {
   try {
-    const userNursery = await NurseryModel.findByIdAndUpdate({_id: id}, input, {new:true});
-    return userNursery
-    
+    const userNursery = await NurseryModel.findByIdAndUpdate(
+      { _id: id },
+      input,
+      { new: true }
+    );
+    return userNursery;
   } catch (err: any) {
     throw new Error(err);
   }
-}
+};

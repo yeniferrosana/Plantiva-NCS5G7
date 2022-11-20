@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import { IReviewDocument } from "./review.model";
 
 export interface UserDocument extends mongoose.Document {
   username: string;
@@ -9,9 +10,10 @@ export interface UserDocument extends mongoose.Document {
   email: string;
   password: string;
   role: number;
+  review: IReviewDocument["_id"]
 }
 
-const userSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema<UserDocument>(
   {
     username: {
       type: String,
@@ -57,6 +59,10 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    review: {
+      type: mongoose.Types.ObjectId,
+      ref:"Review"
+    }
   },
   { timestamps: true }
 );

@@ -4,9 +4,9 @@ defineProps({
     type: String,
     required: false,
     default: "span",
-  }
-})
+  },
+});
 </script>
 <template>
-<component :is="tag"><slot /></component>
+  <component :is="tag"><slot /></component>
 </template>

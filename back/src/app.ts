@@ -14,7 +14,10 @@ app.use(express.json());
 //routes
 import userRoutes from "./routes/user.routes";
 import nurseryRoutes from "./routes/nursery.routes";
+import plantsRoutes from "./routes/plants.routes";
+
 app.use("/api/v1/auth/user", userRoutes);
 app.use("/api/v1/auth/nursery", nurseryRoutes);
+app.use("/api/v1/plants", plantsRoutes);
 
 export default app;

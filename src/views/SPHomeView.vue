@@ -1,7 +1,7 @@
 <script setup>
 import SPCard from "../components/Card/SPCard.vue";
 import SPModal from "../components/Modal/SPModal.vue";
-import {useCounterStore} from "../stores/modal.store";
+import { useCounterStore } from "../stores/modal.store";
 
 const store = useCounterStore();
 </script>

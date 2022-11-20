@@ -11,9 +11,7 @@ function redirectToRegister() {
 }
 </script>
 <template>
-  <form
-    class=" px-4 py-5 rounded-md flex flex-col"
-  >
+  <form class="px-4 py-5 rounded-md flex flex-col">
     <SPText class="text-center mb-12">LOGIN</SPText>
     <SPInput
       class="mt-2 p-2 border rounded-sm"

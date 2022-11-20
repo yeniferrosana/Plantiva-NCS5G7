@@ -5,8 +5,8 @@ export const useCounterStore = defineStore("counter", {
     show: false,
   }),
   actions: {
-    changeShow(value){
+    changeShow(value) {
       this.show = value;
-    }
-  }
+    },
+  },
 });

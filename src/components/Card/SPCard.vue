@@ -1,9 +1,8 @@
 <script setup>
 import SPText from "../Text/SPText.vue";
-import {useCounterStore} from "../../stores/modal.store";
+import { useCounterStore } from "../../stores/modal.store";
 
 const store = useCounterStore();
-
 </script>
 <template>
   <div

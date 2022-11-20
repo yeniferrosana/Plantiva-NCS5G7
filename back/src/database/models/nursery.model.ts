@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import { RolesDocument } from "./roles.model";
 
 export interface NurseryDocument extends mongoose.Document {
   username: string;
@@ -12,7 +13,7 @@ export interface NurseryDocument extends mongoose.Document {
   province: string;
   city: string;
   adress: string;
-  role: number;
+  role: RolesDocument["_id"];
 }
 
 const nurserySchema = new mongoose.Schema(
@@ -79,8 +80,8 @@ const nurserySchema = new mongoose.Schema(
       required: true,
     },
     role: {
-      type: Number,
-      default: 0,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Roles",
     },
   },
   { timestamps: true }

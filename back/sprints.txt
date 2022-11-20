@@ -1,0 +1,22 @@
+SPRINT 2
+tokens. jwt. passport?
+
+validaciones. 
+express-validator
+
+Poblar bbdd. preparar endpoint, body request, modelo Plantas. Pasar a Jack-scrapper
+autorizar ip de Jack a bbdd
+asegurar endpoints?
+
+
+SPRINT 3
+documentacion. swagger
+
+imagenes. multer? public? url?
+
+/validaciones de errores
+
+SPRINT 4
+refactorizar codigo
+
+//Tests unitario. Jest y supertest

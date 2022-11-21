@@ -15,7 +15,9 @@ const store = useCounterStore();
     <div class="modal-header"></div>
     <div class="modal-body">
       <SPLoginForm class="bg-[#402306]">
-        <SPText class="text-center text-2xl mb-2 text-white">Ingresa para ver mas detalles</SPText>
+        <SPText class="text-center text-2xl mb-2 text-white"
+          >Ingresa para ver mas detalles</SPText
+        >
       </SPLoginForm>
     </div>
   </div>

@@ -18,22 +18,22 @@ type PlantsLocation = {
 export interface Plant {
   title: string;
   info: PlantsInfo;
-  imgs: string[];
+  imgs: string;
   location: PlantsLocation;
 }
 
-export interface PlantsDocument extends Plant, mongoose.Document {}
+export interface IPlantsDocument extends Plant, mongoose.Document {}
 
-const plantsSchema = new mongoose.Schema(
+const plantsSchema = new mongoose.Schema<IPlantsDocument>(
   {
     title: { type: String, required: false },
     info: { type: Object, required: false },
-    imgs: { type: Array, required: false },
+    imgs: [{ type: String, required: false }],
     location: { type: Object, required: false },
   },
   { timestamps: true }
 );
 
-const PlantsModel = mongoose.model<PlantsDocument>("Plants", plantsSchema);
+const PlantsModel = mongoose.model<IPlantsDocument>("Plants", plantsSchema);
 
 export default PlantsModel;

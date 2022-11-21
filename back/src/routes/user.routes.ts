@@ -4,7 +4,7 @@ import {
   getUsers,
   loginUser,
   registerUser,
-  putUser
+  updateUserById
 } from "../controllers/user.controller";
 
 const userRoutes = Router();
@@ -17,6 +17,6 @@ userRoutes.get("/", getUsers);
 
 userRoutes.get("/:id", getUserById);
 
-userRoutes.put("/edituser/:id", putUser);
+userRoutes.put("/edituser/:id", updateUserById);
 
 export default userRoutes;

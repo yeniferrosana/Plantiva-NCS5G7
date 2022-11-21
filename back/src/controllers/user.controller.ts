@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import bcrypt from "bcrypt";
 import {
   createUser,
   findAll,
   findById,
   validatePassword,
-  updateUser
+  updateUser,
 } from "../services/user.service";
+import { hashPassword } from "../utils/jwt";
 
 //register controller
 export const registerUser = async (req: Request, res: Response) => {
@@ -23,7 +23,7 @@ export const registerUser = async (req: Request, res: Response) => {
 
     return res.send(user);
   } catch (err: any) {
-    return res.status(409).send("Error at register" + err);
+    return res.status(409).send("Error at register " + err);
   }
 };
 
@@ -38,7 +38,7 @@ export const loginUser = async (req: Request, res: Response) => {
     const userValidation = { email, password };
 
     const validate = await validatePassword(userValidation);
-    
+
     if (!validate) {
       return res.status(401).send("Wrong email or password");
     }
@@ -73,23 +73,30 @@ export const getUserById = async (req: Request, res: Response) => {
   }
 };
 
-// Nursery Update
-export const putUser = async (req:Request, res:Response) => {
+// update user by ID
+export const updateUserById = async (req: Request, res: Response) => {
   const { id } = req.params;
+  const user = await findById(id);
+  if (!user) {
+    return res.status(404).send("User not found");
+  }
+
   const { email, username, password, birthdate } = req.body;
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hashSync(password, salt);
-  const newEdit = {
-      email,
-      username,
-      password: hash,
-      birthdate
+
+  const hash = await hashPassword(password);
+  const hashUsername = await hashPassword(user.password);
+
+  const newUser = {
+    email: email ? email : user.email,
+    username: username ? username : user.username,
+    password: password ? hash : hashUsername,
+    birthdate: birthdate ? birthdate : user.birthdate,
   };
   try {
-      
-      const userId = await updateUser(id, newEdit);
-      return res.send(userId);
+    const user = await updateUser(id, newUser);
+
+    return res.send(user);
   } catch (err: any) {
-      return res.status(404).send("User not actualized");
+    return res.status(400).send("Error updating User " + err);
   }
-}
+};

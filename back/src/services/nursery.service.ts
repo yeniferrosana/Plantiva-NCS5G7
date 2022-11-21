@@ -1,8 +1,8 @@
 import NurseryModel from "../database/models/nursery.model";
 import { comparePassword } from "../utils/jwt";
 
-//funcion para crear un usuario en la bbdd
-export const createuserNursery = async (input: {}) => {
+//funcion para crear un vivero en la bbdd
+export const createUserNursery = async (input: {}) => {
   try {
     const userNursery = await NurseryModel.create(input);
 
@@ -12,8 +12,6 @@ export const createuserNursery = async (input: {}) => {
   }
 };
 
-//funcion que valida pwd. recibe como parametros email y pwd ingresados en request. defino los tipos
-//el servicio se consume desde el controlador para la ruta /login
 export const validatePassword = async ({
   email,
   password,
@@ -21,14 +19,11 @@ export const validatePassword = async ({
   email: string;
   password: string;
 }) => {
-  //busco userNursery por email
+  
   const userNursery = await NurseryModel.findOne({ email: email });
-
   if (!userNursery) return false;
 
-  //comparo pwd
   const validate = await comparePassword(password, userNursery.password);
-
   if (!validate) return false;
 
   return userNursery;

@@ -1,19 +1,20 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import { IRolesDocument } from "./roles.model";
 import { IReviewDocument } from "./review.model";
+import { hashPassword } from "../../utils/jwt";
 
-export interface UserDocument extends mongoose.Document {
+export interface IUserDocument extends mongoose.Document {
   username: string;
   birthdate: Date;
   img: string;
   social: string;
   email: string;
   password: string;
-  role: number;
-  review: IReviewDocument["_id"]
+  role: IRolesDocument["_id"];
+  review: IReviewDocument["_id"];
 }
 
-const userSchema = new mongoose.Schema<UserDocument>(
+const userSchema = new mongoose.Schema<IUserDocument>(
   {
     username: {
       type: String,
@@ -61,8 +62,8 @@ const userSchema = new mongoose.Schema<UserDocument>(
     },
     review: {
       type: mongoose.Types.ObjectId,
-      ref:"Review"
-    }
+      ref: "Review",
+    },
   },
   { timestamps: true }
 );
@@ -75,8 +76,7 @@ userSchema.pre("save", async function (next) {
   }
 
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hashSync(user.password, salt);
+    const hash = await hashPassword(user.password);
 
     user.password = hash;
     return next();
@@ -85,6 +85,6 @@ userSchema.pre("save", async function (next) {
   }
 });
 
-const UserModel = mongoose.model<UserDocument>("User", userSchema);
+const UserModel = mongoose.model<IUserDocument>("User", userSchema);
 
 export default UserModel;

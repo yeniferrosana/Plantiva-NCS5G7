@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import { RolesDocument } from "./roles.model";
+import { IRolesDocument } from "./roles.model";
+import { hashPassword } from "../../utils/jwt";
 
-export interface NurseryDocument extends mongoose.Document {
+export interface INurseryDocument extends mongoose.Document {
   username: string;
   birthdate: Date;
   img: string;
@@ -13,10 +14,10 @@ export interface NurseryDocument extends mongoose.Document {
   province: string;
   city: string;
   adress: string;
-  role: RolesDocument["_id"];
+  role: IRolesDocument["_id"];
 }
 
-const nurserySchema = new mongoose.Schema(
+const nurserySchema = new mongoose.Schema<INurseryDocument>(
   {
     username: {
       type: String,
@@ -95,8 +96,7 @@ nurserySchema.pre("save", async function (next) {
   }
 
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hashSync(nursery.password, salt);
+    const hash = await hashPassword(nursery.password);
 
     nursery.password = hash;
     return next();
@@ -105,6 +105,6 @@ nurserySchema.pre("save", async function (next) {
   }
 });
 
-const NurseryModel = mongoose.model<NurseryDocument>("Nursery", nurserySchema);
+const NurseryModel = mongoose.model<INurseryDocument>("Nursery", nurserySchema);
 
 export default NurseryModel;

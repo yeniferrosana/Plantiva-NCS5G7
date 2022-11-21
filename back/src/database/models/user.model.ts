@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import { RolesDocument } from "./roles.model";
+import { IReviewDocument } from "./review.model";
 
 export interface UserDocument extends mongoose.Document {
   username: string;
@@ -9,10 +9,11 @@ export interface UserDocument extends mongoose.Document {
   social: string;
   email: string;
   password: string;
-  role: RolesDocument["_id"];
+  role: number;
+  review: IReviewDocument["_id"]
 }
 
-const userSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema<UserDocument>(
   {
     username: {
       type: String,
@@ -58,6 +59,10 @@ const userSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Roles",
     },
+    review: {
+      type: mongoose.Types.ObjectId,
+      ref:"Review"
+    }
   },
   { timestamps: true }
 );

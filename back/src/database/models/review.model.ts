@@ -1,27 +1,32 @@
 import mongoose from "mongoose";
 import { UserDocument } from "./user.model";
 
-interface ReviewDocument extends mongoose.Document {
+export interface IReviewDocument extends mongoose.Document {
   username: UserDocument["_id"];
   rate: number;
   description: string;
 }
 
-const reviewSchema = new mongoose.Schema(
+const reviewSchema = new mongoose.Schema<IReviewDocument>(
   {
-    username: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    rate: { type: Number, maxlength: 2, default: 0, required: false },
+    username: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    rate: {
+      type: Number,
+      maxlength: 2,
+      default: 0,
+      required: false },
     description: {
       type: String,
       minlength: 10,
       maxlenght: 100,
-      required: false,
+      required: true,
     },
   },
   { timestamps: true }
 );
 
-export const ReviewModel = mongoose.model<ReviewDocument>(
-  "Review",
-  reviewSchema
-);
+export const ReviewModel = mongoose.model<IReviewDocument>("Review", reviewSchema);

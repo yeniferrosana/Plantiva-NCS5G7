@@ -9,7 +9,7 @@ const router = useRouter();
 
 function redirectToRegister() {
   router.push({ name: "register" });
-}
+}  
 
 const email = ref("");
 const password = ref("");

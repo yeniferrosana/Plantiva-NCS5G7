@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createPlant, findAll, findById } from "../services/plants.service";
+import { createPlant, deletePlant, findAll, findById } from "../services/plants.service";
 import { Plant } from "../database/models/plants.model";
 
 //create new plant
@@ -42,5 +42,26 @@ export const getPlantById = async (req: Request, res: Response) => {
     return res.send(plant);
   } catch (err: any) {
     return res.status(404).send("Plants not found");
+  }
+};
+
+// Plant Delete of the BBDD
+export const removePlant = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { title } = req.body;
+
+    if (!title)
+      return res.status(404).send('No existe el link')
+
+    const plantDelete = { title };
+    const plantRemove = await deletePlant(id, plantDelete);
+    
+    return res.status(200).send(`El usuario ${plantRemove} fue eliminado`);
+  } catch (error: any) {
+    if (error.kind === 'ObjectId') {
+      return res.status(403).send("Fomrato User ID not found");
+    }
+    return res.status(500).send('Error del servidor')
   }
 };

@@ -63,3 +63,13 @@ export const updateNursery = async (id: string, input: {}) => {
     throw new Error(err);
   }
 };
+
+// Service of Delete
+export const deleteNursery = async (id: string, input: {}) => {
+  try {
+    const nursery = await NurseryModel.findById({ _id: id}, input, { new: true });
+    await nursery?.remove()
+  } catch (err: any) {
+    throw new Error(err);
+  }
+}

@@ -66,3 +66,13 @@ export const updateUser = async (id: string, input: {}) => {
     throw new Error(err);
   }
 };
+
+// Service of Delete
+export const deleteUser = async (id: string, input: {}) => {
+  try {
+    const user = await UserModel.findById({ _id: id}, input, { new: true });
+    await user?.remove()
+  } catch (err: any) {
+    throw new Error(err);
+  }
+}

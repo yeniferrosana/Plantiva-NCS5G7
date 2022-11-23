@@ -4,7 +4,8 @@ import {
   getUsers,
   loginUser,
   registerUser,
-  updateUserById
+  updateUserById,
+  removeUser
 } from "../controllers/user.controller";
 
 const userRoutes = Router();
@@ -17,6 +18,8 @@ userRoutes.get("/", getUsers);
 
 userRoutes.get("/:id", getUserById);
 
-userRoutes.put("/edituser/:id", updateUserById);
+userRoutes.put("/:id", updateUserById);
+
+userRoutes.delete("/:id", removeUser);
 
 export default userRoutes;

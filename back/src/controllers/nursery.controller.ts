@@ -5,6 +5,7 @@ import {
   findAll,
   findById,
   updateNursery,
+  deleteNursery
 } from "../services/nursery.service";
 import { hashPassword } from "../utils/jwt";
 
@@ -115,5 +116,26 @@ export const updateNurseryById = async (req: Request, res: Response) => {
     return res.send(nursery);
   } catch (err: any) {
     return res.status(400).send("Error updating Nursery " + err);
+  }
+};
+
+// Nursery Delete of the BBDD
+export const removeNursery = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { email, password, username } = req.body;
+
+    if (!email || !password || !username)
+      return res.status(404).send('No existe el link')
+
+    const nurseryDelete = { email, password, username };
+    const nurseryRemove = await deleteNursery(id, nurseryDelete);
+    
+    return res.status(200).send(`El usuario ${nurseryRemove} fue eliminado`);
+  } catch (error: any) {
+    if (error.kind === 'ObjectId') {
+      return res.status(403).send("Fomrato User ID not found");
+    }
+    return res.status(500).send('Error del servidor')
   }
 };

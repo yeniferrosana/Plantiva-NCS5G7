@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { createPlant, findAll, findById } from "../services/plants.service";
-import { Plant } from "../database/models/plants.model";
+import { IPlant } from "../interfaces/plants.interface";
 
 //create new plant
 export const newPlant = async (req: Request, res: Response) => {
@@ -11,7 +11,7 @@ export const newPlant = async (req: Request, res: Response) => {
       return res.status(400).send("Missing fields");
     }
 
-    const newPlant: Plant = { title, info, imgs, location };
+    const newPlant: IPlant = { title, info, imgs, location };
    
     const plants = await createPlant(newPlant);
    

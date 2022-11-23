@@ -7,12 +7,16 @@ import {
   updateUserById,
   removeUser
 } from "../controllers/user.controller";
+import {
+  authUserValidator,
+  loginValidator,
+} from "../middlewares/validators/validators";
 
 const userRoutes = Router();
 
-userRoutes.post("/register", registerUser);
+userRoutes.post("/register", authUserValidator, registerUser);
 
-userRoutes.post("/login", loginUser);
+userRoutes.post("/login", loginValidator, loginUser);
 
 userRoutes.get("/", getUsers);
 

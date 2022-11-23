@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+import { IPlant } from "../../interfaces/plants.interface";
 
+/*
 type PlantsInfo = {
   other_names: string;
   habit: string;
@@ -21,8 +23,8 @@ export interface Plant {
   imgs: string;
   location: PlantsLocation;
 }
-
-export interface IPlantsDocument extends Plant, mongoose.Document {}
+*/
+export interface IPlantsDocument extends IPlant, mongoose.Document {}
 
 const plantsSchema = new mongoose.Schema<IPlantsDocument>(
   {

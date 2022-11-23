@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
-import { IRolesDocument } from "./roles.model";
-import { IReviewDocument } from "./review.model";
+import { IUser } from "../../interfaces/user.interface";
 import { hashPassword } from "../../utils/jwt";
 
-export interface IUserDocument extends mongoose.Document {
+//import { IRolesDocument } from "./roles.model";
+//import { IReviewDocument } from "./review.model";
+/*
+export interface IUser {
   username: string;
   birthdate: Date;
   img: string;
@@ -13,30 +15,26 @@ export interface IUserDocument extends mongoose.Document {
   role: IRolesDocument["_id"];
   review: IReviewDocument["_id"];
 }
+*/
+export interface IUserDocument extends IUser, mongoose.Document {}
 
 const userSchema = new mongoose.Schema<IUserDocument>(
   {
     username: {
       type: String,
-      minlength: 3,
-      maxlength: 50,
-      required: true,
     },
     birthdate: {
       type: Date,
-      required: false,
     },
     img: {
-      data: Buffer,
-      contentType: String,
-      required: false,
+      type: String,
     },
     social: {
       type: String,
-      required: false,
     },
     email: {
       type: String,
+      /*
       required: [true, "Please add a E-mail"],
       trim: true,
       unique: false,
@@ -46,15 +44,18 @@ const userSchema = new mongoose.Schema<IUserDocument>(
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
         "Please add a valid E-mail",
       ],
+      */
     },
     password: {
       type: String,
+      /*
       required: [true, "Please add a Password"],
       minlength: [6, "Password must have at least six (6) characters"],
       match: [
         /^(?=.*\d)(?=.*[@#\-_$%^&+=!\?])(?=.*[a-z])[0-9A-Za-z@#\-_$%^&+=!\?]+$/,
         "password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and special characters",
       ],
+      */
     },
     role: {
       type: mongoose.Schema.Types.ObjectId,

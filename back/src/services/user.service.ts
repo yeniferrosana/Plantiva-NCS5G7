@@ -1,6 +1,9 @@
 import UserModel from "../database/models/user.model";
 import { comparePassword } from "../utils/jwt";
 
+//test
+import { UserRepo } from "../repository/UserRepository";
+
 //funcion para crear un usuario en la bbdd
 export const createUser = async (input: {}) => {
   try {
@@ -36,9 +39,9 @@ export const validatePassword = async ({
 
 export const findAll = async () => {
   try {
-    const users = await UserModel.find();
-
-    return users;
+    //const users = await UserModel.find();
+    //return users;
+    return await UserRepo.find();
   } catch (err: any) {
     throw new Error(err);
   }
@@ -46,10 +49,11 @@ export const findAll = async () => {
 
 export const findById = async (id: string) => {
   try {
-    const user = await UserModel.findOne({ _id: id });
-    if (!user) return false;
+    //const user = await UserRepo.findOne({ _id: id });
+    //if (!user) return false;
 
-    return user;
+    //return user;
+    return await UserRepo.findOne(id);
   } catch (err: any) {
     throw new Error(err);
   }

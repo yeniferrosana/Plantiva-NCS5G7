@@ -1,11 +1,9 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
+import { IRoles } from "../../interfaces/roles.interface";
 
-export interface IRolesDocument extends mongoose.Document {
-  role: string;
-  permission: string[];
-}
+export interface IRolesDocument extends IRoles, mongoose.Document {}
 
-const rolesSchema = new Schema<IRolesDocument>({
+const rolesSchema = new mongoose.Schema<IRolesDocument>({
   role: { type: String, required: true },
   permission: [{ type: String, required: true }],
 });

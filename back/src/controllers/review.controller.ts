@@ -11,10 +11,6 @@ export const registerReview = async (req: Request, res: Response) => {
   try {
     const { username, description, rate } = req.body;
 
-    if (!username || !description || !rate) {
-      return res.status(400).send("Missing fields");
-    }
-
     const newReview = { username, description, rate };
 
     const review = await createReview(newReview);

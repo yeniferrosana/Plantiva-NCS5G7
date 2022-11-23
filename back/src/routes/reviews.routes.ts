@@ -5,11 +5,12 @@ import {
   getReviewById,
   putReview,
   deleteReviewById,
-} from "../controllers/review.controllers";
+} from "../controllers/review.controller";
+import { reviewValidator } from "../middlewares/validators/validators";
 
 const reviewRoutes = Router();
 
-reviewRoutes.post("/new", registerReview);
+reviewRoutes.post("/new", reviewValidator, registerReview);
 
 reviewRoutes.get("/", getReviews);
 

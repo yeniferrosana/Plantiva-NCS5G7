@@ -45,9 +45,6 @@ export const loginNursery = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
 
-    if (!email || !password) {
-      return res.status(400).send("Missing fields");
-    }
     const userValidation = { email, password };
 
     const validate = await validatePassword(userValidation);

@@ -1,5 +1,5 @@
 <script setup>
-import SearchBar from "../shared/SearchBar.vue";
+import SearchBar from "./SPSearchBar.vue";
 const arrayRegiones = [
   "Noa",
   "Chaco",

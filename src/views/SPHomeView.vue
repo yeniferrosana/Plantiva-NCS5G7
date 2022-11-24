@@ -1,5 +1,5 @@
 <script setup>
-import Filter from "../components/shared/Filter.vue";
+import Filter from "../components/shared/SPFilter.vue";
 </script>
 
 <template>

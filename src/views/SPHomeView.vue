@@ -4,7 +4,7 @@ import Filter from "../components/shared/SPFilter.vue";
 
 <template>
   <main>
-    <section class="midSection">
+    <section class="midSection bg-white mt-10 mb-10">
       <Filter></Filter>
     </section>
   </main>

@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "sp": {
+        sp: {
           DEFAULT: "#402306", //Marrón
           50: "#25390b", //Verde Oscuro
           100: "#c4ffbf", //Verde Claro

@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <main class="flex flex-col h-screen">
     <div
-      class="w-full bg-center bg-cover h-[32rem] bg-sp-200"
+      class="w-full bg-center bg-cover h-[32rem] bg-sp-200 flex-grow"
       style="
         background-image: url(https://res.cloudinary.com/yeniferramirez11/image/upload/v1669065794/header_uommzb.png);
       "

@@ -1,5 +1,5 @@
 <script>
-// import { RouterView } from "vue-router";
+// import { RouterLink, RouterView } from "vue-router";
 import NavBarVue from "../src/components/shared/SPNavbar.vue";
 import FooterVue from "../src/components/shared/SPFooter.vue";
 export default {

@@ -15,6 +15,16 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("../views/SPLoginView.vue"),
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("../views/SPRegisterView.vue"),
+    },
   ],
 });
 

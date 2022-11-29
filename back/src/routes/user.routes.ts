@@ -11,6 +11,7 @@ import {
   authUserValidator,
   loginValidator,
 } from "../middlewares/validators/validators";
+import { verifyToken } from "../middlewares/validators/verifyToken";
 
 const userRoutes = Router();
 
@@ -18,7 +19,7 @@ userRoutes.post("/register", authUserValidator, registerUser);
 
 userRoutes.post("/login", loginValidator, loginUser);
 
-userRoutes.get("/", getUsers);
+userRoutes.get("/", verifyToken, getUsers);
 
 userRoutes.get("/:id", getUserById);
 

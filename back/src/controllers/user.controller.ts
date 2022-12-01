@@ -1,28 +1,32 @@
 import { Request, Response } from "express";
+import { IUser } from "../interfaces/user.interface";
 import {
   createUser,
   findAll,
   findById,
   validatePassword,
   updateUser,
-  deleteUser
+  deleteUser,
 } from "../services/user.service";
-import { hashPassword } from "../utils/jwt";
+import { hashPassword, signToken } from "../utils/jwt";
 
 //register controller
 export const registerUser = async (req: Request, res: Response) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, birthdate, img, social } = req.body;
 
-    if (!username || !email || !password) {
-      return res.status(400).send("Missing fields");
-    }
-
-    const newUser = { username, email, password };
+    const newUser: Omit<IUser, "review" | "role"> = {
+      username,
+      email,
+      password,
+      birthdate,
+      img,
+      social,
+    };
 
     const user = await createUser(newUser);
 
-    return res.send(user);
+    return res.send({ message: "User registered successfully", user });
   } catch (err: any) {
     return res.status(409).send("Error at register " + err);
   }
@@ -41,7 +45,19 @@ export const loginUser = async (req: Request, res: Response) => {
       return res.status(401).send("Wrong email or password");
     }
 
-    return res.send("User succesffully auth");
+    //data para encriptar
+    const encrypt = {
+      _id: validate._id,
+    };
+
+    //sign payload
+    const token = await signToken(encrypt);
+
+    //generar refresh token
+
+    return res
+      .header("Authorization", token)
+      .send({ message: "User succesffully auth" });
   } catch (err: any) {
     return res.status(409).send(err);
   }
@@ -79,7 +95,7 @@ export const updateUserById = async (req: Request, res: Response) => {
     return res.status(404).send("User not found");
   }
 
-  const { email, username, password, birthdate } = req.body;
+  const { email, username, password, birthdate, img, social  } = req.body;
 
   const hash = await hashPassword(password);
   const hashUsername = await hashPassword(user.password);
@@ -89,6 +105,8 @@ export const updateUserById = async (req: Request, res: Response) => {
     username: username ? username : user.username,
     password: password ? hash : hashUsername,
     birthdate: birthdate ? birthdate : user.birthdate,
+    img: img ? img : user.img,
+    social: social ? social : user.social,
   };
   try {
     const user = await updateUser(id, newUser);
@@ -106,16 +124,16 @@ export const removeUser = async (req: Request, res: Response) => {
     const { email, password, username } = req.body;
 
     if (!email || !password || !username)
-      return res.status(404).send('No existe el link')
+      return res.status(404).send("No existe el link");
 
     const userDelete = { email, password, username };
     const userRemove = await deleteUser(id, userDelete);
-    
+
     return res.status(200).send(`El usuario ${userRemove} fue eliminado`);
   } catch (error: any) {
-    if (error.kind === 'ObjectId') {
+    if (error.kind === "ObjectId") {
       return res.status(403).send("Fomrato User ID not found");
     }
-    return res.status(500).send('Error del servidor')
+    return res.status(500).send("Error del servidor");
   }
 };

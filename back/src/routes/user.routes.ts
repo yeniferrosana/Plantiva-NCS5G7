@@ -11,6 +11,7 @@ import {
   authUserValidator,
   loginValidator,
 } from "../middlewares/validators/validators";
+import { verifyToken } from "../middlewares/validators/verifyToken";
 
 const userRoutes = Router();
 
@@ -18,12 +19,12 @@ userRoutes.post("/register", authUserValidator, registerUser);
 
 userRoutes.post("/login", loginValidator, loginUser);
 
-userRoutes.get("/", getUsers);
+userRoutes.get("/", verifyToken, getUsers);
 
-userRoutes.get("/:id", getUserById);
+userRoutes.get("/:id", verifyToken, getUserById);
 
-userRoutes.put("/:id", updateUserById);
+userRoutes.put("/:id", verifyToken, updateUserById);
 
-userRoutes.delete("/:id", removeUser);
+userRoutes.delete("/:id", verifyToken, removeUser);
 
 export default userRoutes;

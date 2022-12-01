@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 export const hashPassword = async (password: string) => {
   const salt = await bcrypt.genSalt(10);
@@ -12,4 +13,14 @@ export const comparePassword = async (
   userPassword: string
 ) => {
   return await bcrypt.compare(password, userPassword);
+};
+
+export const signToken = async (payload: {}) => {
+  const token = jwt.sign(payload, "secret", { expiresIn: "45m" });
+  return token;
+};
+
+export const validateToken = async (token: string) => {
+  const validate = jwt.verify(token, "secret");
+  return validate;
 };

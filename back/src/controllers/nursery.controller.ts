@@ -1,29 +1,19 @@
 import { Request, Response } from "express";
+import { INursery } from "../interfaces/nursery.interface";
 import {
   createUserNursery,
   validatePassword,
   findAll,
   findById,
   updateNursery,
-  deleteNursery
+  deleteNursery,
 } from "../services/nursery.service";
-import { hashPassword } from "../utils/jwt";
+import { hashPassword, signToken } from "../utils/jwt";
 
 //register controller
 export const registerNursery = async (req: Request, res: Response) => {
   try {
-    const { username, email, password, telephone, province, city, adress } =
-      req.body;
-
-    if (
-      !username ||
-      !email ||
-      (!password && !telephone && !province && !city && !adress)
-    ) {
-      return res.status(400).send("Missing fields");
-    }
-
-    const newNursery = {
+    const {
       username,
       email,
       password,
@@ -31,11 +21,35 @@ export const registerNursery = async (req: Request, res: Response) => {
       province,
       city,
       adress,
+      birthdate,
+      img,
+      social,
+    } = req.body;
+    /*
+    if (
+      !username ||
+      !email ||
+      (!password && !telephone && !province && !city && !adress)
+    ) {
+      return res.status(400).send("Missing fields");
+    }
+*/
+    const newNursery: Omit<INursery, "role"> = {
+      username,
+      email,
+      password,
+      telephone,
+      province,
+      city,
+      adress,
+      birthdate,
+      img,
+      social,
     };
 
     const nursery = await createUserNursery(newNursery);
 
-    return res.send(nursery);
+    return res.send({ message: "User registered successfully", nursery });
   } catch (err: any) {
     return res.status(409).send("Error at register" + err);
   }
@@ -54,7 +68,19 @@ export const loginNursery = async (req: Request, res: Response) => {
       return res.status(401).send("Wrong email or password");
     }
 
-    return res.send("Nursery succesffully auth");
+    //data para encriptar
+    const encrypt = {
+      _id: validate._id,
+    };
+
+    //sign payload
+    const token = await signToken(encrypt);
+
+    //generar refresh token
+
+    return res
+      .header("Authorization", token)
+      .send({ message: "Nursery succesffully auth" });
   } catch (err: any) {
     return res.status(409).send(err);
   }
@@ -92,7 +118,7 @@ export const updateNurseryById = async (req: Request, res: Response) => {
     return res.status(404).send("Nursery not found");
   }
 
-  const { email, username, telephone, province, city, adress, password } =
+  const { email, username, telephone, province, city, adress, password,  birthdate, img, social } =
     req.body;
 
   const hash = await hashPassword(password);
@@ -106,6 +132,9 @@ export const updateNurseryById = async (req: Request, res: Response) => {
     city: city ? city : nursery.city,
     adress: adress ? adress : nursery.adress,
     password: password ? hash : hashNursery,
+    birthdate: birthdate ? birthdate : nursery.birthdate,
+    img: img ? img : nursery.img,
+    social: social ? social : nursery.social,
   };
   try {
     const nursery = await updateNursery(id, newNursery);
@@ -123,16 +152,16 @@ export const removeNursery = async (req: Request, res: Response) => {
     const { email, password, username } = req.body;
 
     if (!email || !password || !username)
-      return res.status(404).send('No existe el link')
+      return res.status(404).send("No existe el link");
 
     const nurseryDelete = { email, password, username };
     const nurseryRemove = await deleteNursery(id, nurseryDelete);
-    
+
     return res.status(200).send(`El usuario ${nurseryRemove} fue eliminado`);
   } catch (error: any) {
-    if (error.kind === 'ObjectId') {
+    if (error.kind === "ObjectId") {
       return res.status(403).send("Fomrato User ID not found");
     }
-    return res.status(500).send('Error del servidor')
+    return res.status(500).send("Error del servidor");
   }
 };

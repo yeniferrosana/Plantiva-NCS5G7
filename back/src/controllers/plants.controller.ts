@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createPlant, deletePlant, findAll, findById } from "../services/plants.service";
+import { createPlant, findAll, findById, deletePlant } from "../services/plants.service";
 import { IPlant } from "../interfaces/plants.interface";
 
 //create new plant

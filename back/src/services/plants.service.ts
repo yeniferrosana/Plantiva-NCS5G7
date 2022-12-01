@@ -1,7 +1,7 @@
 import PlantsModel from "../database/models/plants.model";
-import { Plant } from "../database/models/plants.model";
+import { IPlant } from "../interfaces/plants.interface";
 
-export const createPlant = async (input: Plant) => {
+export const createPlant = async (input: IPlant) => {
   try {
     const plant = await PlantsModel.create(input);
 

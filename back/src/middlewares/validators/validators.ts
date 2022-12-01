@@ -26,7 +26,7 @@ export const authUserValidator = [
   check("birthdate")
     .exists()
     .withMessage("Birthdate field is required")
-    .isDate()
+    .isDate({format: "DD/MM/YYYY"})
     .withMessage("Birthdate must be a valid Date")
     .not()
     .isEmpty()
@@ -77,6 +77,7 @@ export const authUserValidator = [
     .not()
     .isEmpty()
     .withMessage("Password cannot be empty"),
+    /*
   check("role")
     .exists()
     .withMessage("Role field is required")
@@ -93,7 +94,7 @@ export const authUserValidator = [
     .not()
     .isEmpty()
     .withMessage("Review cannot be empty"),
-
+*/
   (req: Request, res: Response, next: NextFunction) => {
     validateResult(req, res, next);
   },

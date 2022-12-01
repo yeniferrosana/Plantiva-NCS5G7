@@ -1,20 +1,22 @@
 SPRINT 2
-tokens. jwt. passport?
+modelos. ROLES. TESTEAR
 
-validaciones. 
-express-validator
+tokens. jwt. ////OK
+
+validaciones. express-validator //// OK
 
 Poblar bbdd. preparar endpoint, body request, modelo Plantas. Pasar a Jack-scrapper
 autorizar ip de Jack a bbdd
 asegurar endpoints?
+/// esperando respuesta de Jack
 
 
 SPRINT 3
-documentacion. swagger
+documentacion. swagger 
 
 imagenes. multer? public? url?
 
-/validaciones de errores
+validaciones de errores(EXTRA)
 
 SPRINT 4
 refactorizar codigo

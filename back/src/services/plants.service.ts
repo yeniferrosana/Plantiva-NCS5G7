@@ -32,6 +32,20 @@ export const findById = async (id: string) => {
   }
 };
 
+
+// Update User
+export const updatePlant = async (id: string, input: {}) => {
+  try {
+    const user = await PlantsModel.findByIdAndUpdate({ _id: id }, input, {
+      new: true,
+    });
+    return user;
+  } catch (err: any) {
+    throw new Error(err);
+  }
+};
+
+
 // Service of Delete
 export const deletePlant = async (id: string, input: {}) => {
   try {

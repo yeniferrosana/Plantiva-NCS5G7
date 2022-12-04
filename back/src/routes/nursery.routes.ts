@@ -5,12 +5,13 @@ import {
   loginNursery,
   registerNursery,
   updateNurseryById,
-  removeNursery
+  removeNursery,
 } from "../controllers/nursery.controller";
 import {
   authNurseryValidator,
   loginValidator,
 } from "../middlewares/validators/validators";
+import { verifyToken } from "../middlewares/validators/verifyToken";
 
 const nurseryRoutes = Router();
 
@@ -18,12 +19,12 @@ nurseryRoutes.post("/register", authNurseryValidator, registerNursery);
 
 nurseryRoutes.post("/login", loginValidator, loginNursery);
 
-nurseryRoutes.get("/", getNurseries);
+nurseryRoutes.get("/", verifyToken, getNurseries);
 
-nurseryRoutes.get("/:id", getNurseryById);
+nurseryRoutes.get("/:id", verifyToken, getNurseryById);
 
-nurseryRoutes.put("/:id", updateNurseryById);
+nurseryRoutes.put("/:id", verifyToken, updateNurseryById);
 
-nurseryRoutes.delete("/:id", removeNursery);
+nurseryRoutes.delete("/:id", verifyToken, removeNursery);
 
 export default nurseryRoutes;

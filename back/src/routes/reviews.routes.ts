@@ -7,10 +7,11 @@ import {
   deleteReviewById,
 } from "../controllers/review.controller";
 import { reviewValidator } from "../middlewares/validators/validators";
+import { verifyToken } from "../middlewares/validators/verifyToken";
 
 const reviewRoutes = Router();
 
-reviewRoutes.post("/new", reviewValidator, registerReview);
+reviewRoutes.post("/new", verifyToken, reviewValidator, registerReview);
 
 reviewRoutes.get("/", getReviews);
 

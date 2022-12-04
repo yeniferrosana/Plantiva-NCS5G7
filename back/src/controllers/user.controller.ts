@@ -95,7 +95,7 @@ export const updateUserById = async (req: Request, res: Response) => {
     return res.status(404).send("User not found");
   }
 
-  const { email, username, password, birthdate } = req.body;
+  const { email, username, password, birthdate, img, social  } = req.body;
 
   const hash = await hashPassword(password);
   const hashUsername = await hashPassword(user.password);
@@ -105,6 +105,8 @@ export const updateUserById = async (req: Request, res: Response) => {
     username: username ? username : user.username,
     password: password ? hash : hashUsername,
     birthdate: birthdate ? birthdate : user.birthdate,
+    img: img ? img : user.img,
+    social: social ? social : user.social,
   };
   try {
     const user = await updateUser(id, newUser);

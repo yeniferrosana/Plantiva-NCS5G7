@@ -1,7 +1,7 @@
 import PlantsModel from "../database/models/plants.model";
 import { IPlant } from "../interfaces/plants.interface";
 
-export const createPlant = async (input: IPlant) => {
+export const createPlant = async (input: Omit<IPlant, "nursery">) => {
   try {
     const plant = await PlantsModel.create(input);
 
@@ -34,7 +34,7 @@ export const findById = async (id: string) => {
 
 
 // Update User
-export const updatePlant = async (id: string, input: {}) => {
+export const updatePlant = async (id: string, input: Omit<IPlant, "nursery">) => {
   try {
     const user = await PlantsModel.findByIdAndUpdate({ _id: id }, input, {
       new: true,

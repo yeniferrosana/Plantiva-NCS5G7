@@ -1,8 +1,9 @@
 import NurseryModel from "../database/models/nursery.model";
+import { INursery } from "../interfaces/nursery.interface";
 import { comparePassword } from "../utils/jwt";
 
 //funcion para crear un vivero en la bbdd
-export const createUserNursery = async (input: {}) => {
+export const createUserNursery = async (input: Omit<INursery, "role">) => {
   try {
     const userNursery = await NurseryModel.create(input);
 
@@ -19,7 +20,6 @@ export const validatePassword = async ({
   email: string;
   password: string;
 }) => {
-  
   const userNursery = await NurseryModel.findOne({ email: email });
   if (!userNursery) return false;
 
@@ -51,7 +51,10 @@ export const findById = async (id: string) => {
 };
 
 // Update Nursery
-export const updateNursery = async (id: string, input: {}) => {
+export const updateNursery = async (
+  id: string,
+  input: Omit<INursery, "role">
+) => {
   try {
     const userNursery = await NurseryModel.findByIdAndUpdate(
       { _id: id },
@@ -67,9 +70,11 @@ export const updateNursery = async (id: string, input: {}) => {
 // Service of Delete
 export const deleteNursery = async (id: string, input: {}) => {
   try {
-    const nursery = await NurseryModel.findById({ _id: id}, input, { new: true });
-    await nursery?.remove()
+    const nursery = await NurseryModel.findById({ _id: id }, input, {
+      new: true,
+    });
+    await nursery?.remove();
   } catch (err: any) {
     throw new Error(err);
   }
-}
+};

@@ -25,15 +25,7 @@ export const registerNursery = async (req: Request, res: Response) => {
       img,
       social,
     } = req.body;
-    /*
-    if (
-      !username ||
-      !email ||
-      (!password && !telephone && !province && !city && !adress)
-    ) {
-      return res.status(400).send("Missing fields");
-    }
-*/
+
     const newNursery: Omit<INursery, "role"> = {
       username,
       email,
@@ -118,13 +110,24 @@ export const updateNurseryById = async (req: Request, res: Response) => {
     return res.status(404).send("Nursery not found");
   }
 
-  const { email, username, telephone, province, city, adress, password,  birthdate, img, social } =
-    req.body;
+  const {
+    email,
+    username,
+    telephone,
+    province,
+    city,
+    adress,
+    password,
+    birthdate,
+    img,
+    social,
+    plants,
+  } = req.body;
 
   const hash = await hashPassword(password);
   const hashNursery = await hashPassword(nursery.password);
 
-  const newNursery = {
+  const newNursery: Omit<INursery, "role"> = {
     email: email ? email : nursery.email,
     username: username ? username : nursery.username,
     telephone: telephone ? telephone : nursery.telephone,
@@ -135,6 +138,7 @@ export const updateNurseryById = async (req: Request, res: Response) => {
     birthdate: birthdate ? birthdate : nursery.birthdate,
     img: img ? img : nursery.img,
     social: social ? social : nursery.social,
+    plants: plants ? plants : nursery.plants,
   };
   try {
     const nursery = await updateNursery(id, newNursery);

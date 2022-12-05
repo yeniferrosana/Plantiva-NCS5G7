@@ -1,11 +1,12 @@
 import UserModel from "../database/models/user.model";
+import { IUser } from "../interfaces/user.interface";
 import { comparePassword } from "../utils/jwt";
 
 //test
 //import { UserRepo } from "../repository/UserRepository";
 
 //funcion para crear un usuario en la bbdd
-export const createUser = async (input: {}) => {
+export const createUser = async (input: Omit<IUser, "review" | "role">) => {
   try {
     const user = await UserModel.create(input);
 
@@ -61,7 +62,10 @@ export const findById = async (id: string) => {
 };
 
 // Update User
-export const updateUser = async (id: string, input: {}) => {
+export const updateUser = async (
+  id: string,
+  input: Omit<IUser, "review" | "role">
+) => {
   try {
     const user = await UserModel.findByIdAndUpdate({ _id: id }, input, {
       new: true,
@@ -75,9 +79,9 @@ export const updateUser = async (id: string, input: {}) => {
 // Service of Delete
 export const deleteUser = async (id: string, input: {}) => {
   try {
-    const user = await UserModel.findById({ _id: id}, input, { new: true });
-    await user?.remove()
+    const user = await UserModel.findById({ _id: id }, input, { new: true });
+    await user?.remove();
   } catch (err: any) {
     throw new Error(err);
   }
-}
+};

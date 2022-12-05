@@ -17,7 +17,7 @@ export const newPlant = async (req: Request, res: Response) => {
       return res.status(400).send("Missing fields");
     }
 
-    const newPlant: IPlant = { title, info, imgs, location };
+    const newPlant: Omit<IPlant, "nursery"> = { title, info, imgs, location };
 
     const plants = await createPlant(newPlant);
 
@@ -61,7 +61,7 @@ export const updatePlantById = async (req: Request, res: Response) => {
 
   const { title, info, imgs, location } = req.body;
 
-  const newPlant: IPlant = {
+  const newPlant: Omit<IPlant, "nursery"> = {
     title: title ? title : plant.title,
     info: info ? info : plant.info,
     imgs: imgs ? imgs : plant.imgs,

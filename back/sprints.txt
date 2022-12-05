@@ -14,11 +14,11 @@ asegurar endpoints?
 SPRINT 3
 documentacion. swagger 
 
-imagenes. multer? public? url?
+imagenes. // DEFINIDO URL
 
-validaciones de errores(EXTRA)
+
 
 SPRINT 4
 refactorizar codigo
 
-//Tests unitario. Jest y supertest
+//Tests unitario. Jest y supertest[OPCIONAL]

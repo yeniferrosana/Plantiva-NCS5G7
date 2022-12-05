@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { INursery } from "../../interfaces/nursery.interface";
-//import { IRolesDocument } from "./roles.model";
 import { hashPassword } from "../../utils/jwt";
 
 export interface INurseryDocument extends INursery, mongoose.Document {}
@@ -21,28 +20,9 @@ const nurserySchema = new mongoose.Schema<INurseryDocument>(
     },
     email: {
       type: String,
-      /*
-      required: [true, "Please add a E-mail"],
-      trim: true,
-      unique: false,
-      lowercase: true,
-      index: { unique: true },
-      match: [
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        "Please add a valid E-mail",
-      ],
-      */
     },
     password: {
       type: String,
-      /*
-      required: [true, "Please add a Password"],
-      minlength: [6, "Password must have at least six (6) characters"],
-      match: [
-        /^(?=.*\d)(?=.*[@#\-_$%^&+=!\?])(?=.*[a-z])[0-9A-Za-z@#\-_$%^&+=!\?]+$/,
-        "password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number and special characters",
-      ],
-      */
     },
     telephone: {
       type: Number,
@@ -61,6 +41,10 @@ const nurserySchema = new mongoose.Schema<INurseryDocument>(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Roles",
     },
+    plants: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Plants",
+    }
   },
   { timestamps: true }
 );

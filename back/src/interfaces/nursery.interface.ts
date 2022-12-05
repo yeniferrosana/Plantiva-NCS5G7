@@ -1,4 +1,5 @@
 import { IRolesDocument } from "../database/models/roles.model";
+import { IPlantsDocument } from "../database/models/plants.model";
 
 export interface INursery {
   username: string;
@@ -12,4 +13,5 @@ export interface INursery {
   city: string;
   adress: string;
   role: IRolesDocument["_id"];
+  plants?: IPlantsDocument["_id"]
 }

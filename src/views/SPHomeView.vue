@@ -3,88 +3,6 @@ import SPCard from "../components/Card/SPCard.vue";
 import SPModal from "../components/Modal/SPModal.vue";
 import { useCounterStore } from "../stores/modal.store";
 
-// const fakeData = [
-//   {
-//     id: 1,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/40082393/medium.jpg",
-//     name: "Bluecrown Passionflower",
-//     scientificName: "Passiflora caerulea",
-//     textDescription: "",
-//   },
-//   {
-//     id: 2,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/36555689/medium.jpeg",
-//     name: "Caven Thorn",
-//     scientificName: "Vachellia caven",
-//     textDescription: "",
-//   },
-//   {
-//     id: 3,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/175796134/medium.jpeg",
-//     name: "Cockspur Coral Tree",
-//     scientificName: "Erythrina crista-galli",
-//     textDescription: "",
-//   },
-//   {
-//     id: 4,
-//     imgURL: "https://static.inaturalist.org/photos/4810555/medium.jpg",
-//     name: "Common Lantana",
-//     scientificName: "Lantana camara",
-//     textDescription: "",
-//   },
-//   {
-//     id: 5,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/27490957/medium.jpeg",
-//     name: "Red Buffalo-Bur",
-//     scientificName: "Solanum sisymbriifolium",
-//     textDescription: "",
-//   },
-//   {
-//     id: 6,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/4493728/medium.jpeg",
-//     name: "Whitemouth Dayflower",
-//     scientificName: "Commelina erecta",
-//     textDescription: "",
-//   },
-//   {
-//     id: 7,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/94139890/medium.jpeg",
-//     name: "Chañar",
-//     scientificName: "Geoffroea decorticans",
-//     textDescription: "",
-//   },
-//   {
-//     id: 8,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/173109660/medium.jpg",
-//     name: "Pampas Grass",
-//     scientificName: "Cortaderia selloana",
-//     textDescription: "",
-//   },
-//   {
-//     id: 9,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/21213586/medium.jpg",
-//     name: "Mile-a-minute Vine",
-//     scientificName: "Ipomoea cairica",
-//     textDescription: "",
-//   },
-//   {
-//     id: 10,
-//     imgURL:
-//       "https://inaturalist-open-data.s3.amazonaws.com/photos/26703/medium.jpg",
-//     name: "Tree Tobacco",
-//     scientificName: "Nicotiana glauca",
-//     textDescription: "",
-//   },
-// ];
-
 const store = useCounterStore();
 </script>
 
@@ -315,7 +233,7 @@ const store = useCounterStore();
           <div
             class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4"
           >
-            <SPCard v-for="n in 10" :key="n" />
+            <SPCard />
           </div>
         </div>
       </div>

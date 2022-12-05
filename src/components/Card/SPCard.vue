@@ -4,14 +4,15 @@ import { useCounterStore } from "../../stores/modal.store";
 import SPCardOptions from "./CardOptions/SPCardOptions.vue";
 const store = useCounterStore();
 </script>
+
 <template>
   <div
-    class="card-wrapper flex flex-col justify-between outline outline-1 rounded-lg outline-slate-600 cursor-pointer hover:shadow-slate-700 hover:shadow hover:outline-none transition duration-700 ease-linear"
+    class="card-wrapper bg-green-100 flex flex-col justify-between outline outline-1 rounded-lg outline-slate-600 cursor-pointer hover:shadow-slate-700 hover:shadow hover:outline-none transition duration-700 ease-linear"
     @click="store.changeShow(true)"
   >
     <div class="card-media relative">
       <img
-        class="block w-full"
+        class="block w-full rounded-t-lg"
         src="https://picsum.photos/id/237/300/300"
         alt=""
       />
@@ -29,11 +30,22 @@ const store = useCounterStore();
         placeat?</SPText
       >
     </div>
+    <div
+      class="verMas w-full text-center rounded-b-lg bg-rose-100 font-semibold pt-1 pb-1 opacity-0"
+    >
+      Ver más
+    </div>
   </div>
 </template>
 <style scoped>
 .card-media:hover > .card-options {
   transition: all 700ms;
   opacity: 1;
+}
+.card-wrapper:hover > .verMas {
+  opacity: 1;
+}
+.card-wrapper:hover {
+  background-color: rgb(59, 119, 59);
 }
 </style>

@@ -33,14 +33,14 @@ export const authUserValidator = [
     .withMessage("Birthdate cannot be empty"),
 
   //decidir img en funcion de como se suben las imgs
-  check("img")
-    .exists()
-    .withMessage("Img field is required")
-    .isURL()
-    .withMessage("Img must be a valid url img")
-    .not()
-    .isEmpty()
-    .withMessage("Img cannot be empty"),
+  // check("img")
+  //   .exists()
+  //   .withMessage("Img field is required")
+  //   .isURL()
+  //   .withMessage("Img must be a valid url img")
+  //   .not()
+  //   .isEmpty()
+  //   .withMessage("Img cannot be empty"),
   check("social")
     .exists()
     .withMessage("Social field is required")

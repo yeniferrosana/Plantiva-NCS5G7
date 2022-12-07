@@ -19,12 +19,12 @@ userRoutes.post("/register", authUserValidator, registerUser);
 
 userRoutes.post("/login", loginValidator, loginUser);
 
-userRoutes.get("/", verifyToken, getUsers);
+userRoutes.get("/", /*verifyToken,*/ getUsers);
 
-userRoutes.get("/:id", verifyToken, getUserById);
+userRoutes.get("/:id", /* verifyToken,*/ getUserById);
 
-userRoutes.put("/:id", verifyToken, updateUserById);
+userRoutes.put("/:id", /*verifyToken,*/ updateUserById);
 
-userRoutes.delete("/:id", verifyToken, removeUser);
+userRoutes.delete("/:id", /*verifyToken,*/ removeUser);
 
 export default userRoutes;

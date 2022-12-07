@@ -1,7 +1,7 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-import SPInput from "../input/spInput.vue";
+import SPInput from "../input/SPInput.vue";
 import SPButton from "../Buttons/SPButton.vue";
 import SPText from "../Text/SPText.vue";
 

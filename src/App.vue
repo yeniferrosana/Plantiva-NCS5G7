@@ -11,6 +11,6 @@ export default {
 </script>
 <template>
   <NavBarVue />
-  <RouterView class="bg-sp-200" />
-  <FooterVue />
+  <RouterView class="bg-amber-50" />
+  <FooterVue class="fixed w-full bottom-0" />
 </template>

@@ -1,33 +1,22 @@
 <script setup></script>
 
 <template>
-  <header class="bg-sp shadow">
+  <header class="bg-green-900 shadow">
     <div
-      class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between"
     >
       <!--Logo-->
       <div class="my-1">
         <a
           class="text-2xl font-bold text-white transition-colors duration-300 transform lg:text-3xl hover:text-sp-100"
           href="/"
-          >LOGO</a
         >
+          <img class="w-32" src="../../assets/logo.svg" alt="logo image" />
+        </a>
       </div>
       <!--Buscador y Explorar-->
       <div
-        v-if="$route.name === 'landing'"
-        class="items-center justify-center md:ml-auto md:mr-auto"
-      >
-        <router-link to="/home">
-          <button
-            class="inline-flex items-center text-white text-2xl font-bold border-0 py-2 px-3 focus:outline-none rounded-lg md:mt-0 mr-2 hover:bg-white hover:text-sp-50 transition-colors duration-300"
-          >
-            EXPLORA
-          </button>
-        </router-link>
-      </div>
-      <div
-        v-else
+        v-if="$route.name === 'home'"
         class="relative items-center justify-center md:ml-auto md:mr-auto"
       >
         <span class="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -43,7 +32,7 @@
         </span>
         <input
           type="text"
-          class="w-full py-2 pl-10 pr-4 text-sp bg-sp-200 border rounded-lg focus:border-sp-100 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-sp-100"
+          class="w-full py-2 pl-10 pr-4 text-green-900 bg-white border rounded-lg focus:border-sp-100 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-sp-100"
           placeholder="Buscar Plantas Nativas"
         />
       </div>

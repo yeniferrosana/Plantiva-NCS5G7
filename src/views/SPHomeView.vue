@@ -206,7 +206,7 @@ const store = useCounterStore();
           </details>
         </div>
 
-        <div class="lg:col-span-3">
+        <div class="lg:col-span-3 mb-16">
           <div class="flex items-center justify-between">
             <p class="text-sm text-gray-500">
               <span class="hidden sm:inline"> Showing </span>

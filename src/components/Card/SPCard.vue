@@ -118,6 +118,7 @@ const fakeData = [
     </div>
   </div>
 </template>
+
 <style scoped>
 .card-media:hover > .card-options {
   transition: all 700ms;
@@ -125,8 +126,5 @@ const fakeData = [
 }
 .card-wrapper:hover > .verMas {
   opacity: 1;
-}
-.card-wrapper:hover {
-  background-color: rgb(59, 119, 59);
 }
 </style>

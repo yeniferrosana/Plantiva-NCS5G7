@@ -11,8 +11,13 @@ import { specs } from "./swaggerOptions";
 //init app. define and set port
 const app = express();
 
+
+const port = config.get<number>("port");
+app.set("port", port);
+
 // Config whitelist
-const whiteList = [process.env.ORIGIN1]
+const whiteList = [process.env.ORIGIN1 + port]
+
 // Cors
 app.use(cors({
     origin: function(origin, callback){
@@ -43,7 +48,5 @@ app.use("/auth/nursery", nurseryRoutes);
 app.use("/plants", plantsRoutes);
 app.use("/reviews", reviewRoutes);
 
-const port = config.get<number>("port");
-app.set("port", port);
 
 export default app;

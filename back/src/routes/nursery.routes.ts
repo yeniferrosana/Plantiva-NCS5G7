@@ -15,6 +15,10 @@ import { verifyToken } from "../middlewares/validators/verifyToken";
 
 const nurseryRoutes = Router();
 
+nurseryRoutes.post("/register", authNurseryValidator, registerNursery);
+
+nurseryRoutes.post("/login", loginValidator, loginNursery);
+
 nurseryRoutes.get("/", verifyToken, getNurseries);
 
 nurseryRoutes.get("/:id", verifyToken, getNurseryById);

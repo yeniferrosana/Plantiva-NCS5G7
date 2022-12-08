@@ -26,21 +26,19 @@ export const authUserValidator = [
   check("birthdate")
     .exists()
     .withMessage("Birthdate field is required")
-    .isDate({format: "DD/MM/YYYY"})
+    .isDate({ format: "DD/MM/YYYY" })
     .withMessage("Birthdate must be a valid Date")
     .not()
     .isEmpty()
     .withMessage("Birthdate cannot be empty"),
-
-  //decidir img en funcion de como se suben las imgs
-  // check("img")
-  //   .exists()
-  //   .withMessage("Img field is required")
-  //   .isURL()
-  //   .withMessage("Img must be a valid url img")
-  //   .not()
-  //   .isEmpty()
-  //   .withMessage("Img cannot be empty"),
+  check("img")
+    .exists()
+    .withMessage("Img field is required")
+    // .isURL()
+    //.withMessage("Img must be a valid url img")
+    .not()
+    .isEmpty()
+    .withMessage("Img cannot be empty"),
   check("social")
     .exists()
     .withMessage("Social field is required")
@@ -77,7 +75,7 @@ export const authUserValidator = [
     .not()
     .isEmpty()
     .withMessage("Password cannot be empty"),
-    /*
+  /*
   check("role")
     .exists()
     .withMessage("Role field is required")
@@ -121,15 +119,15 @@ export const authNurseryValidator = [
     .isEmpty()
     .withMessage("Birthdate cannot be empty"),
 
-  //decidir img en funcion de como se suben las imgs
   check("img")
     .exists()
     .withMessage("Img field is required")
-    .isURL()
-    .withMessage("Img must be a valid url img")
+    //.isURL()
+    //.withMessage("Img must be a valid url img")
     .not()
     .isEmpty()
     .withMessage("Img cannot be empty"),
+
   check("social")
     .exists()
     .withMessage("Social field is required")

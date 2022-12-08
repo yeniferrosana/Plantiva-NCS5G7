@@ -1,34 +1,97 @@
+<script setup></script>
+
 <template>
-  <main>
-    <div
-      class="w-full bg-center bg-cover h-[32rem] bg-sp-200"
-      style="
-        background-image: url(https://res.cloudinary.com/yeniferramirez11/image/upload/v1669065794/header_uommzb.png);
-      "
-    >
-      <div class="flex items-center justify-center w-full h-full bg-opacity-50">
-        <div class="text-center">
-          <h1 class="text-2xl font-semibold text-sp uppercase lg:text-3xl">
-            Plantas Nativas
-          </h1>
-          <button
-            class="w-full px-4 py-2 mt-4 text-sm font-medium text-white uppercase transition-colors duration-300 transform bg-sp-50 rounded-md lg:w-auto hover:bg-sp-100 hover:text-sp focus:outline-none focus:bg-sp-100"
-          >
-            Iniciar Sesión
-          </button>
+  <main class="flex flex-col h-screen">
+    <div class="flex">
+      <img
+        src="../assets/leaves/leftLeaves.svg"
+        alt="image of leaves"
+        class="abosolute left-0 h-full"
+      />
+      <div class="w-full h-[32rem] flex-grow z-10 absolute">
+        <div
+          class="flex items-center justify-center w-full h-full bg-opacity-50"
+        >
+          <div class="text-center">
+            <h1
+              class="landingText text-5xl font-semibold text-stone-900 mb-12 w-3/5 text-center"
+            >
+              Descubre cómo las plantas nativas pueden
+              <span class="text-green-700">transformar</span> tu vida y tu
+              entorno
+            </h1>
+            <router-link to="/home">
+              <button
+                class="landingButton w-full px-8 py-6 mt-4 text-lg font-medium text-amber-50 transform rounded-full lg:w-auto focus:outline-none bg-red-700 leading-3"
+              >
+                Explorar plantas nativas
+              </button>
+            </router-link>
+          </div>
         </div>
       </div>
+      <img
+        src="../assets/leaves/rightLeaves.svg"
+        alt="image of leaves"
+        class="absolute right-0 h-full"
+      />
     </div>
-
-    <div class="container p-8 flex flex-col">
-      <div class="bg-sp text-center p-4">
-        <p class="text-white">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
-          similique facilis. Laboriosam laudantium eius, obcaecati debitis
-          quibusdam quod esse sapiente maxime vel, odit dolor a corporis
-          incidunt! Magnam, assumenda perspiciatis.
+    <div
+      class="container flex flex-col relative bottom-1/3 max-w-none w-full items-center"
+    >
+      <div class="bg-green-900 p-4 w-11/12 italic mb-10 rounded-md">
+        <p class="text-white text-5xl font-semibold mb-8">Acerca de Plantiva</p>
+        <p class="text-white text-3xl">
+          Plantiva es tu explorador de las plantas nativas en Argentina, con
+          información detallada sobre cada una para que puedas elegir la que
+          mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás
+          aumentar la biodiversidad en tu hogar y disminuir tu impacto en el
+          cambio climático.
+        </p>
+      </div>
+    </div>
+    <div
+      class="container flex flex-col relative bottom-1/3 max-w-none w-full items-center"
+    >
+      <div class="bg-green-700 p-4 w-11/12 italic mb-10 rounded-md">
+        <p class="text-white text-5xl font-semibold mb-8">Acerca de Plantiva</p>
+        <p class="text-white text-3xl">
+          Plantiva es tu explorador de las plantas nativas en Argentina, con
+          información detallada sobre cada una para que puedas elegir la que
+          mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás
+          aumentar la biodiversidad en tu hogar y disminuir tu impacto en el
+          cambio climático.
+        </p>
+      </div>
+    </div>
+    <div
+      class="container flex flex-col relative bottom-1/3 max-w-none w-full items-center"
+    >
+      <div class="bg-green-500 p-4 w-11/12 italic rounded-md mb-32">
+        <p class="text-white text-5xl font-semibold mb-8">Acerca de Plantiva</p>
+        <p class="text-white text-3xl">
+          Plantiva es tu explorador de las plantas nativas en Argentina, con
+          información detallada sobre cada una para que puedas elegir la que
+          mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás
+          aumentar la biodiversidad en tu hogar y disminuir tu impacto en el
+          cambio climático.
         </p>
       </div>
     </div>
   </main>
 </template>
+
+<style>
+.landingText {
+  margin-left: 20%;
+  font-family: "Abril Fatface", cursive;
+}
+
+.landingButton {
+  font-family: "Inter", sans-serif;
+}
+
+.container {
+  font-family: "Inter", sans-serif;
+}
+</style>

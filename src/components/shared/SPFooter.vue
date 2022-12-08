@@ -2,13 +2,14 @@
 
 <template>
   <footer
-    class="flex flex-col items-center justify-between p-6 bg-sp sm:flex-row"
+    class="flex flex-col items-center justify-between p-6 bg-green-900 sm:flex-row"
   >
     <a
       href="#"
       class="text-xl font-bold text-white transition-colors duration-300 hover:text-sp-200"
-      >LOGO</a
     >
+      <img class="w-10" src="../../assets/miniLogo.svg" alt="mini logo image" />
+    </a>
 
     <p class="text-sm text-white">© Copyright No Country 2022.</p>
 

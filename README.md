@@ -3,7 +3,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/No-Country/S5-G7">
-    <img src="https://github.com/No-Country/S5-G7/blob/dev-front/src/assets/logo.svg" alt="Logo" width="100" height="100">
+    <img src="https://github.com/No-Country/S5-G7/blob/dev-front/src/assets/miniLogo.svg" alt="Logo" width="100" height="100">
   </a>
 
 <h3 align="center">Plantiva</h3>
@@ -22,3 +22,40 @@
 [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://s5-g7-production.up.railway.app/)
 
 Bienvenido a Plantiva. Plantiva es tu explorador de las plantas nativas en Argentina, con información detallada sobre cada una para que puedas elegir la que mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás aumentar la biodiversidad en tu hogar y disminuir tu impacto en el cambio climático.
+
+## Equipo
+* Elias Galeano - Backend Dev 
+<br>[![LinkedIn][linkedin-shield]][linkedin-url-elias]  [![GitHub][github-shield]][github-url-elias]
+
+* Francisco Nanoia - Backend Dev 
+<br>[![LinkedIn][linkedin-shield]][linkedin-url-fran]  [![GitHub][github-shield]][github-url-fran]
+
+* André Umbert - Frontend Dev
+<br>[![LinkedIn][linkedin-shield]][linkedin-url-andre]  [![GitHub][github-shield]][github-url-andre]
+
+* Yenifer Ramírez  - Frontend Dev 
+<br>[![LinkedIn][linkedin-shield]][linkedin-url-yenifer]  [![GitHub][github-shield]][github-url-yenifer]
+
+* Daniel Aguilar  - Frontend Dev 
+<br>[![LinkedIn][linkedin-shield]][linkedin-url-daniel]  [![GitHub][github-shield]][github-url-daniel]
+
+* Bautista Sierra Lacosta  - UX/UI Designer
+<br>[![LinkedIn][linkedin-shield]][linkedin-url-bauti]  [![GitHub][github-shield]][github-url-bauti]
+
+
+<!-- LINKS -->
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url-andre]: https://www.linkedin.com/in/andr%C3%A9-umbert-507209201/
+[linkedin-url-fran]: https://linkedin.com/in/fnanoia
+[linkedin-url-bauti]: https://www.linkedin.com/in/bautista-sierra-lacosta/
+[linkedin-url-daniel]: https://www.linkedin.com/in/wdanielaguilar/
+[linkedin-url-yenifer]: https://www.linkedin.com/in/yeniferrosana
+[linkedin-url-elias]: https://www.linkedin.com/in/elias-david-galeano/
+
+[github-shield]: https://img.shields.io/badge/Github-61DAFB.svg?style=for-the-badge&logo=github&logoColor=FFFFFF
+[github-url-elias]: https://github.com/galeanoelias
+[github-url-fran]: https://github.com/fnanoia
+[github-url-daniel]: https://github.com/Onnichan
+[github-url-yenifer]: https://github.com/yeniferrosana
+[github-url-andre]: https://github.com/AndreUmbertReact
+[github-url-bauti]: https://github.com/bauysi

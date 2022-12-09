@@ -23,6 +23,19 @@
 
 Bienvenido a Plantiva. Plantiva es tu explorador de las plantas nativas en Argentina, con información detallada sobre cada una para que puedas elegir la que mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás aumentar la biodiversidad en tu hogar y disminuir tu impacto en el cambio climático.
 
+<!-- TECHNOLOGIES -->
+## Tecnologias usadas
+[![Vue][vue-shield]][vue-url]
+[![TailwindCss][tailwind-shield]][tailwind-url]
+[![Figma][figma-shield]][figma-url]
+<br>
+[![Node][node-shield]][node-url]
+[![Typescript][typescript-shield]][typescript-url]
+[![Express][express-shield]][express-url]
+[![MongoDB][mongo-shield]][mongo-url]
+[![JWT][jwt-shield]][jwt-url]
+
+<!-- TEAM INFO -->
 ## Equipo
 * Elias Galeano - Backend Dev 
 <br>[![LinkedIn][linkedin-shield]][linkedin-url-elias]  [![GitHub][github-shield]][github-url-elias]
@@ -59,3 +72,25 @@ Bienvenido a Plantiva. Plantiva es tu explorador de las plantas nativas en Argen
 [github-url-yenifer]: https://github.com/yeniferrosana
 [github-url-andre]: https://github.com/AndreUmbertReact
 [github-url-bauti]: https://github.com/bauysi
+
+
+<!-- TECH LINKS -->
+[node-url]: https://nodejs.org/
+[typescript-url]: https://www.typescriptlang.org
+[express-url]: https://expressjs.com/
+[vue-url]: https://vuejs.org/
+[tailwind-url]: https://tailwindcss.com/
+[mongo-url]: https://www.mongodb.com
+[jwt-url]: https://jwt.io/
+[figma-url]: https://www.figma.com
+
+<!-- SHIELDS -->
+
+[node-shield]: https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white
+[typescript-shield]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
+[express-shield]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
+[vue-shield]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D
+[tailwind-shield]:	https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+[mongo-shield]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
+[jwt-shield]: https://img.shields.io/badge/json%20web%20tokens-323330?style=for-the-badge&logo=json-web-tokens&logoColor=pink
+[figma-shield]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white

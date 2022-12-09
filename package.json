@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "axios": "^1.1.3",
     "pinia": "^2.0.23",
     "vue": "^3.2.41",

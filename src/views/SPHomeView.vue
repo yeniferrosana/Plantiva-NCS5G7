@@ -38,7 +38,7 @@ const store = useCounterStore();
                 <legend
                   class="block w-full bg-green-800 text-white px-5 py-3 text-xs font-bold"
                 >
-                  Type
+                  Riego
                 </legend>
 
                 <div class="space-y-2 px-5 py-6">
@@ -54,7 +54,7 @@ const store = useCounterStore();
                       for="toy"
                       class="ml-3 text-sm font-medium text-white"
                     >
-                      Hola
+                      Poco
                     </label>
                   </div>
 
@@ -70,7 +70,7 @@ const store = useCounterStore();
                       for="game"
                       class="ml-3 text-sm font-medium text-white"
                     >
-                      Game
+                      Regular
                     </label>
                   </div>
 
@@ -86,7 +86,7 @@ const store = useCounterStore();
                       for="outdoor"
                       class="ml-3 text-sm font-medium text-white"
                     >
-                      Outdoor
+                      Alto
                     </label>
                   </div>
 
@@ -103,71 +103,52 @@ const store = useCounterStore();
                   <legend
                     class="block w-full bg-green-800 text-white px-5 py-3 text-xs font-bold"
                   >
-                    Age
+                    Crecimiento
                   </legend>
 
                   <div class="space-y-2 px-5 py-6">
                     <div class="flex items-center">
                       <input
-                        id="3+"
                         type="checkbox"
-                        name="age[3+]"
+                        name="Despacio"
                         class="h-5 w-5 rounded border-gray-300"
                       />
 
                       <label
-                        for="3+"
+                        for="Despacio"
                         class="ml-3 text-sm font-medium text-white"
                       >
-                        3+
+                        Despacio
                       </label>
                     </div>
 
                     <div class="flex items-center">
                       <input
-                        id="8+"
                         type="checkbox"
-                        name="age[8+]"
+                        name="Moderado"
                         class="h-5 w-5 rounded border-gray-300"
                       />
 
                       <label
-                        for="8+"
+                        for="Moderado"
                         class="ml-3 text-sm font-medium text-white"
                       >
-                        8+
+                        Moderado
                       </label>
                     </div>
 
                     <div class="flex items-center">
                       <input
-                        id="12+"
                         type="checkbox"
-                        name="age[12+]"
+                        name="Rápido"
                         class="h-5 w-5 rounded border-gray-300"
                       />
 
                       <label
-                        for="12+"
+                        for="Rápido"
                         class="ml-3 text-sm font-medium text-white"
                       >
-                        12+
-                      </label>
-                    </div>
-
-                    <div class="flex items-center">
-                      <input
-                        id="16+"
-                        type="checkbox"
-                        name="age[16+]"
-                        class="h-5 w-5 rounded border-gray-300"
-                      />
-
-                      <label
-                        for="16+"
-                        class="ml-3 text-sm font-medium text-white"
-                      >
-                        16+
+                        Rápido
                       </label>
                     </div>
 
@@ -176,7 +157,7 @@ const store = useCounterStore();
                         type="button"
                         class="text-xs text-white underline"
                       >
-                        Reset Age
+                        Reset Crecimiento
                       </button>
                     </div>
                   </div>

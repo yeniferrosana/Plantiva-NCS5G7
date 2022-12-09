@@ -1,7 +1,12 @@
-<script setup></script>
+<script setup>
+import { OhVueIcon, addIcons } from "oh-vue-icons";
+import { BiChevronDown } from "oh-vue-icons/icons";
+
+addIcons(BiChevronDown);
+</script>
 
 <template>
-  <main class="flex flex-col h-screen">
+  <main class="flex flex-col">
     <div class="flex">
       <img
         src="../assets/leaves/leftLeaves.svg"
@@ -10,9 +15,9 @@
       />
       <div class="w-full h-[32rem] flex-grow z-10 absolute">
         <div
-          class="flex items-center justify-center w-full h-full bg-opacity-50"
+          class="flex items-center justify-center w-full h-full bg-opacity-50 mt-20"
         >
-          <div class="text-center">
+          <div class="flex text-center flex-col items-center">
             <h1
               class="landingText text-5xl font-semibold text-stone-900 mb-12 w-3/5 text-center"
             >
@@ -27,6 +32,16 @@
                 Explorar plantas nativas
               </button>
             </router-link>
+            <img
+              class="w-64 mt-40"
+              src="../assets/logoInverted.svg"
+              alt="Logo Image"
+            />
+            <img
+              class="w-5d h-5 relative top-20"
+              src="../assets/arrow-down-sign-to-navigate.png"
+              alt="arrow down image"
+            />
           </div>
         </div>
       </div>
@@ -83,7 +98,6 @@
 
 <style>
 .landingText {
-  margin-left: 20%;
   font-family: "Abril Fatface", cursive;
 }
 

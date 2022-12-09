@@ -1,5 +1,5 @@
 <script setup>
-import { OhVueIcon, addIcons } from "oh-vue-icons";
+import { addIcons } from "oh-vue-icons";
 import { BiChevronDown } from "oh-vue-icons/icons";
 
 addIcons(BiChevronDown);

@@ -42,7 +42,7 @@ yarn dev
 <br>[![LinkedIn][linkedin-shield]][linkedin-url-fran]  [![GitHub][github-shield]][github-url-fran]
 
 * André Umbert - Frontend Dev
-<br>[![LinkedIn][linkedin-andre]][linkedin-url-andre]  [![GitHub][github-shield]][github-url-andre]
+<br>[![LinkedIn][linkedin-shield]][linkedin-url-andre]  [![GitHub][github-shield]][github-url-andre]
 
 * Yenifer Ramírez  - Frontend Dev 
 <br>[![LinkedIn][linkedin-shield]][linkedin-url-yenifer]  [![GitHub][github-shield]][github-url-yenifer]

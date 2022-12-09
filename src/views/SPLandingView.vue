@@ -1,8 +1,5 @@
 <script setup>
-import { addIcons } from "oh-vue-icons";
-import { BiChevronDown } from "oh-vue-icons/icons";
 
-addIcons(BiChevronDown);
 </script>
 
 <template>

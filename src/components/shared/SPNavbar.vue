@@ -39,7 +39,7 @@
 
       <!--Botones-->
       <div class="flex text-sp-50 font-bold text-sm mt-2">
-        <router-link to="/register">
+        <router-link to="#">
           <button
             class="inline-flex items-center bg-sp-100 border-0 py-2 px-3 focus:outline-none rounded-lg md:mt-0 mr-2"
           >

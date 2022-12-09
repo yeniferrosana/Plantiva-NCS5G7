@@ -26,8 +26,8 @@ export const authUserValidator = [
   check("birthdate")
     .exists()
     .withMessage("Birthdate field is required")
-    .isDate({ format: "DD/MM/YYYY" })
-    .withMessage("Birthdate must be a valid Date")
+    //.isDate({ format: "DD/MM/YYYY" })
+    //.withMessage("Birthdate must be a valid Date")
     .not()
     .isEmpty()
     .withMessage("Birthdate cannot be empty"),
@@ -113,8 +113,8 @@ export const authNurseryValidator = [
   check("birthdate")
     .exists()
     .withMessage("Birthdate field is required")
-    .isDate()
-    .withMessage("Birthdate must be a valid Date")
+    //.isDate()
+    //.withMessage("Birthdate must be a valid Date")
     .not()
     .isEmpty()
     .withMessage("Birthdate cannot be empty"),
@@ -169,8 +169,8 @@ export const authNurseryValidator = [
     .withMessage("Telephone field is required")
     .isNumeric({ no_symbols: true })
     .withMessage("Telephone must be a number")
-    .isInt({ gt: 0, lt: 20 })
-    .withMessage("Telephone must be between one (1) and twenty (20)")
+    //.isInt({ gt: 0, lt: 20 })
+    //.withMessage("Telephone must be between one (1) and twenty (20)")
     .not()
     .isEmpty()
     .withMessage("Telephone cannot be empty"),
@@ -204,7 +204,8 @@ export const authNurseryValidator = [
     .not()
     .isEmpty()
     .withMessage("Adress cannot be empty"),
-  check("role")
+  /*
+    check("role")
     .exists()
     .withMessage("Role field is required")
     .isMongoId()
@@ -212,7 +213,7 @@ export const authNurseryValidator = [
     .not()
     .isEmpty()
     .withMessage("Role cannot be empty"),
-
+ */
   (req: Request, res: Response, next: NextFunction) => {
     validateResult(req, res, next);
   },

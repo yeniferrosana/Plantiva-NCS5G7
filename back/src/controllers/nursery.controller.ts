@@ -121,24 +121,24 @@ export const updateNurseryById = async (req: Request, res: Response) => {
     birthdate,
     img,
     social,
-    plants,
+    //plants,
   } = req.body;
 
-  const hash = await hashPassword(password);
-  const hashNursery = await hashPassword(nursery.password);
+  //const hash = await hashPassword(password);
+  //const hashNursery = await hashPassword(nursery.password);
 
-  const newNursery: Omit<INursery, "role"> = {
+  const newNursery: Omit<INursery, "role" | "plants"> = {
     email: email ? email : nursery.email,
     username: username ? username : nursery.username,
     telephone: telephone ? telephone : nursery.telephone,
     province: province ? province : nursery.province,
     city: city ? city : nursery.city,
     adress: adress ? adress : nursery.adress,
-    password: password ? hash : hashNursery,
+    password: password ? password : nursery.password,
     birthdate: birthdate ? birthdate : nursery.birthdate,
     img: img ? img : nursery.img,
     social: social ? social : nursery.social,
-    plants: plants ? plants : nursery.plants,
+    //plants: plants ? plants : nursery.plants,
   };
   try {
     const nursery = await updateNursery(id, newNursery);

@@ -97,13 +97,13 @@ export const updateUserById = async (req: Request, res: Response) => {
 
   const { email, username, password, birthdate, img, social  } = req.body;
 
-  const hash = await hashPassword(password);
-  const hashUsername = await hashPassword(user.password);
+  //const hash = await hashPassword(password);
+  //const hashUsername = await hashPassword(user.password);
 
   const newUser = {
     email: email ? email : user.email,
     username: username ? username : user.username,
-    password: password ? hash : hashUsername,
+    password: password ? password : user.password,
     birthdate: birthdate ? birthdate : user.birthdate,
     img: img ? img : user.img,
     social: social ? social : user.social,

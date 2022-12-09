@@ -12,6 +12,6 @@ export interface INursery {
   province: string;
   city: string;
   adress: string;
-  role: IRolesDocument["_id"];
+  role?: IRolesDocument["_id"];
   plants?: IPlantsDocument["_id"]
 }

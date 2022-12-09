@@ -5,7 +5,7 @@ import {
   loginUser,
   registerUser,
   updateUserById,
-  removeUser
+  removeUser,
 } from "../controllers/user.controller";
 import {
   authUserValidator,
@@ -21,7 +21,7 @@ userRoutes.post("/login", loginValidator, loginUser);
 
 userRoutes.get("/", verifyToken, getUsers);
 
-userRoutes.get("/:id",  verifyToken, getUserById);
+userRoutes.get("/:id", verifyToken, getUserById);
 
 userRoutes.put("/:id", verifyToken, updateUserById);
 

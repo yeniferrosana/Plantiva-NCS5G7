@@ -23,7 +23,7 @@ nurseryRoutes.get("/", verifyToken, getNurseries);
 
 nurseryRoutes.get("/:id", verifyToken, getNurseryById);
 
-nurseryRoutes.put("/:id", verifyToken, updateNurseryById);
+nurseryRoutes.put("/:id", verifyToken ,updateNurseryById);
 
 nurseryRoutes.delete("/:id", verifyToken, removeNursery);
 

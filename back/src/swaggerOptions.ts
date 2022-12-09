@@ -28,9 +28,46 @@ const options = {
       {
         name: "user",
         description: "Operations about user"
-      }
+      },
     ],
     paths: {
+      "/plants/test":{
+        get: {
+          tags: [ "plant"],
+          summary: "Add a new plant to the nursery",
+          description: "test",
+          operationId: "addPlant",
+          responses: {
+            200: {
+              description: "Successful operation",
+              content: {
+                "application/json": {
+                  schema: {
+                    $ref: "#/components/schemas/Plant"
+                  }
+                }
+              }
+            },
+            400: {
+              description: "Invalid ID supplied"
+            },
+            404: {
+              description: "Nursery not found"
+            },
+            405: {
+              description: "Validation exception"
+            }
+          },
+          security: [
+            {
+              plantstore_auth: [
+                "write:plant",
+                "read:plant"
+              ]
+            }
+          ]
+        },
+      },
       "/plants/new": {
         post: {
           tags: [

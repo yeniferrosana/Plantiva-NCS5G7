@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <main class="flex flex-col">
     <div class="flex">

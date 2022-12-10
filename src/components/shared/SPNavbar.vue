@@ -39,16 +39,16 @@
 
       <!--Botones-->
       <div class="flex text-sp-50 font-bold text-sm mt-2">
-        <router-link to="#">
+        <router-link to="/register">
           <button
-            class="inline-flex items-center bg-sp-100 border-0 py-2 px-3 focus:outline-none rounded-lg md:mt-0 mr-2"
+            class="inline-flex items-center bg-sp-100 hover:bg-white border-0 py-2 px-3 focus:outline-none rounded-lg md:mt-0 mr-2"
           >
             REGISTRARME
           </button>
         </router-link>
         <router-link to="/login">
           <button
-            class="inline-flex items-center bg-sp-200 border-0 py-2 px-3 focus:outline-none rounded-lg md:mt-0 ml-2"
+            class="inline-flex items-center bg-sp-200 hover:bg-white border-0 py-2 px-3 focus:outline-none rounded-lg md:mt-0 ml-2"
           >
             INGRESAR
           </button>

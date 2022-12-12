@@ -10,10 +10,10 @@ module.exports = {
           100: "#c4ffbf", // Verde Claro
           200: "#ece8d4", // Blanco de Fondo
         },
-        /** fontFamily: {
-          nunito: ["Nunito", "sans-serif"],
-          mono: ["Space Mono", "monospace"],
-        },**/
+      },
+      fontFamily: {
+        abril: ['Abril Fatface', 'cursive'],
+        inter: ['Inter', 'sans-serif'],
       },
     },
   },

@@ -47,7 +47,7 @@
       <!--Div Plantivas-->
       <div class="bg-green-900 p-12 w-11/12 mb-10 rounded-lg">
         <p class="text-white font-inter font-bold sm:text-5xl mb-8 text-center text-3xl ">Acerca de Plantiva</p>
-        <p class="text-white text-3xl text-justify">
+        <p class="text-white text-xl sm:text-2xl md:text-3xl text-justify">
           Plantiva es tu explorador de las plantas nativas en Argentina, con
           información detallada sobre cada una para que puedas elegir la que
           mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás
@@ -60,7 +60,7 @@
       
       <div class="bg-green-700 p-12 w-11/12 mb-10 rounded-lg">
         <p class="text-white font-inter font-bold sm:text-5xl text-3xl mb-8 text-center">¿Qué son plantas nativas?</p>
-        <p class="text-white text-3xl text-justify">
+        <p class="text-white text-xl sm:text-2xl md:text-3xl text-justify">
           Las plantas nativas son aquellas que crecen en una región determinada
           de forma natural, sin la intervención del ser humano. Son parte
           fundamental del ecosistema local y su presencia es esencial para el 

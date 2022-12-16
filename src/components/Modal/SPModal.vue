@@ -14,10 +14,7 @@ const store = useCounterStore();
   <div class="w-11/12 modal sm:w-2/4 fixed top-1/4 left-3.5 sm:left-1/4 z-10">
     <div class="modal-header"></div>
     <div class="modal-body">
-      <SPLoginForm class="bg-[#402306]">
-        <SPText class="text-center text-2xl mb-2 text-white"
-          >Ingresa para ver mas detalles</SPText
-        >
+      <SPLoginForm class="bg-green-900">
       </SPLoginForm>
     </div>
   </div>

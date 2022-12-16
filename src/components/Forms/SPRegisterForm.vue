@@ -11,8 +11,10 @@ function redirectToRegister() {
   router.push({ name: "register" });
 }
 
+const name = ref("");
 const email = ref("");
 const password = ref("");
+const nametextMessage = ref("");
 const emailtextMessage = ref("");
 const passwordtextMessage = ref("");
 // eslint-disable-next-line no-useless-escape
@@ -30,9 +32,16 @@ const handleEmailTextMessage = () => {
 </script>
 <template>
   <form class="py-6 px-12 lg:mx-12 xl:mx-12 rounded-xl flex flex-col border-2 border-gray-100">
-    <SPText class="text-center mb-6 font-abril text-white text-2xl">Ingresa para ver más detalles</SPText>
+    <SPText class="text-center mb-6 font-abril text-white text-2xl">Registrate para ver más detalles</SPText>
     <slot></slot>
-    <p class="text-sm text-white font-inter">Email</p>
+    <p class="text-sm text-white font-inter">Nombre</p>
+    <SPInput
+      class="mt-2 p-2 border rounded-md"
+      type="text"
+      v-model="name"
+      placeholder="Ingresa tu nombre"
+    />
+    <p class="pt-4 text-sm text-white font-inter">Email</p>
     <SPInput
       class="mt-2 p-2 border rounded-md"
       type="email"
@@ -50,16 +59,16 @@ const handleEmailTextMessage = () => {
     />
     <SPText class="hidden text-white">{{ passwordtextMessage }}</SPText>
     <SPButton
-      class="text-sac-200 mt-10 bg-orange-100 text-green-900 p-2 rounded-md font-bold text-xl"
-      >Iniciar Sesión</SPButton
+      class="text-sac-200 mt-10 bg-lime-200 text-green-900 p-2 rounded-md font-bold text-xl"
+      >Registrame</SPButton
     >
     <div class="mt-6 flex gap-2 justify-center">
-      <SPText class="text-sm text-white font-abril">¿Aun no tienes una cuenta?</SPText>
+      <SPText class="text-sm text-white font-abril">¿Ya tienes una cuenta?</SPText>
       <SPButton
         type="button"
         class="text-sm text-white mt-1"
         @click="redirectToRegister"
-        >Registrate</SPButton
+        >Inicia Sesión</SPButton
       >
     </div>
   </form>

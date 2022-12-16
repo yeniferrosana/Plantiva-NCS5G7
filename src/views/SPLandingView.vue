@@ -1,5 +1,21 @@
-<script setup>
+<script>
   import SPCardPlants from "../components/Card/SPCardPlants.vue";
+  
+  export default {
+    components: {
+      SPCardPlants,
+    },
+    data() {
+      return {
+        items: [
+          { id:'1', name: 'Regulan el clima' },
+          { id:'2', name: 'Mejoran la calidad del aire y del suelo' },
+          { id:'3', name: 'Contribuyen a la conservación de la biodiversidad' },
+          { id:'4', name: 'Son fuente de alimento y medicina' },
+        ]
+      }
+    }
+  }
 </script>
 
 <template>
@@ -29,7 +45,7 @@
     >
 
       <!--Div Plantivas-->
-      <div class="bg-green-900 p-8 w-11/12 mb-10 rounded-lg">
+      <div class="bg-green-900 p-12 w-11/12 mb-10 rounded-lg">
         <p class="text-white font-inter font-bold sm:text-5xl mb-8 text-center text-3xl ">Acerca de Plantiva</p>
         <p class="text-white text-3xl text-justify">
           Plantiva es tu explorador de las plantas nativas en Argentina, con
@@ -42,9 +58,9 @@
 
       <!--Div Plantas Nativas-->
       
-      <div class="bg-sp-200  p-8 w-11/12 mb-10 rounded-lg">
-        <p class="text-stone-900 font-inter font-bold sm:text-5xl text-3xl mb-8 text-center">¿Qué son plantas nativas?</p>
-        <p class="text-stone-900 text-3xl text-justify">
+      <div class="bg-green-700 p-12 w-11/12 mb-10 rounded-lg">
+        <p class="text-white font-inter font-bold sm:text-5xl text-3xl mb-8 text-center">¿Qué son plantas nativas?</p>
+        <p class="text-white text-3xl text-justify">
           Las plantas nativas son aquellas que crecen en una región determinada
           de forma natural, sin la intervención del ser humano. Son parte
           fundamental del ecosistema local y su presencia es esencial para el 
@@ -54,103 +70,19 @@
         </p>
       </div>
 
-      <div class="px-4 w-11/12 flex flex-wrap text-center">
-        <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-          <SPCardPlants />
-        </div>
-        <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-          <SPCardPlants />
-        </div>
-        <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-          <SPCardPlants />
-        </div>
-      </div>
-    </div>
-    <!--<div class="flex">
-      <img
-        src="../assets/leaves/leftLeaves.svg"
-        alt="image of leaves"
-        class="abosolute left-0 h-full"
-      />
-      <div class="w-full h-[32rem] flex-grow z-10 absolute">
-        <div
-          class="flex items-center justify-center w-full h-full bg-opacity-50 mt-20"
-        >
-          <div class="flex text-center flex-col items-center">
-            <h1
-              class="font-abril text-5xl font-semibold text-stone-900 mb-12 w-3/5 text-center"
-            >
-              Descubre cómo las plantas nativas pueden
-              <span class="text-green-700">transformar</span> tu vida y tu
-              entorno
-            </h1>
-            <router-link to="/home">
-              <button
-                class="landingButton w-full px-8 py-6 mt-4 text-lg font-medium text-amber-50 transform rounded-full lg:w-auto focus:outline-none bg-red-700 leading-3"
-              >
-                Explorar plantas nativas
-              </button>
-            </router-link>
-            <img
-              class="w-64 mt-40"
-              src="../assets/logoInverted.svg"
-              alt="Logo Image"
-            />
-            <img
-              class="w-5d h-5 relative top-20"
-              src="../assets/arrow-down-sign-to-navigate.png"
-              alt="arrow down image"
-            />
+      <div class="bg-green-400 p-12 w-11/12 mb-10 rounded-lg">
+        <p class="text-gradient-to-r from-stone-900 to-green-900 font-inter font-bold sm:text-5xl text-3xl mb-8 text-center">Beneficios de las plantas nativas</p>
+        <div class="flex flex-wrap ">
+          <div 
+            v-for="(item) in items"
+            :key="item.id"
+            class="py-4 px-4 lg:w-1/4 xl:w-1/4 w-full"
+            
+          >
+            <SPCardPlants :name="item.name" />
           </div>
         </div>
       </div>
-      <img
-        src="../assets/leaves/rightLeaves.svg"
-        alt="image of leaves"
-        class="absolute right-0 h-full"
-      />
     </div>
-    <div
-      class="container flex flex-col relative bottom-1/3 max-w-none w-full items-center"
-    >
-      <div class="bg-green-900 p-4 w-11/12 italic mb-10 rounded-md">
-        <p class="text-white text-5xl font-semibold mb-8">Acerca de Plantiva</p>
-        <p class="text-white text-3xl">
-          Plantiva es tu explorador de las plantas nativas en Argentina, con
-          información detallada sobre cada una para que puedas elegir la que
-          mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás
-          aumentar la biodiversidad en tu hogar y disminuir tu impacto en el
-          cambio climático.
-        </p>
-      </div>
-    </div>
-    <div
-      class="container flex flex-col relative bottom-1/3 max-w-none w-full items-center"
-    >
-      <div class="bg-green-700 p-4 w-11/12 italic mb-10 rounded-md">
-        <p class="text-white text-5xl font-semibold mb-8">Acerca de Plantiva</p>
-        <p class="text-white text-3xl">
-          Plantiva es tu explorador de las plantas nativas en Argentina, con
-          información detallada sobre cada una para que puedas elegir la que
-          mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás
-          aumentar la biodiversidad en tu hogar y disminuir tu impacto en el
-          cambio climático.
-        </p>
-      </div>
-    </div>
-    <div
-      class="container flex flex-col relative bottom-1/3 max-w-none w-full items-center"
-    >
-      <div class="bg-green-500 p-4 w-11/12 italic rounded-md mb-32">
-        <p class="text-white text-5xl font-semibold mb-8">Acerca de Plantiva</p>
-        <p class="text-white text-3xl">
-          Plantiva es tu explorador de las plantas nativas en Argentina, con
-          información detallada sobre cada una para que puedas elegir la que
-          mejor se adapte a tus necesidades y gustos. Con Plantiva, podrás
-          aumentar la biodiversidad en tu hogar y disminuir tu impacto en el
-          cambio climático.
-        </p>
-      </div>
-    </div>-->
   </main>
 </template>

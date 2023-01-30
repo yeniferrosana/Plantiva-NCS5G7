@@ -11,12 +11,7 @@
   <p align="center">
     Explorador
     <br />
-    <a href="https://s5-g7-production.up.railway.app/">Ver Demo</a>
-  </p>
-  <p align="center">
-    Deploy Backend
-    <br />
-    <a href="https://api-plants-production.up.railway.app/">Ver Demo</a>
+    <a href="https://app-plantiva.vercel.app/">Ver Demo</a>
   </p>
 </div>
 
@@ -30,15 +25,15 @@ Bienvenido a Plantiva. Plantiva es tu explorador de las plantas nativas en Argen
 
 <!-- TECHNOLOGIES -->
 ## Tecnologias usadas
-[![Vue][vue-shield]][vue-url]
-[![TailwindCss][tailwind-shield]][tailwind-url]
-[![Figma][figma-shield]][figma-url]
-<br>
-[![Node][node-shield]][node-url]
-[![Typescript][typescript-shield]][typescript-url]
-[![Express][express-shield]][express-url]
-[![MongoDB][mongo-shield]][mongo-url]
-[![JWT][jwt-shield]][jwt-url]
+* [LaTeX](https://www.latex-project.org/) - Framework para la construcción de interfaces de usuario web.
+* [TailwindCss](https://tailwindcss.com/) - Framework CSS.
+* [Figma](https://figma.com/) - Editor de gráficos vectorial.
+
+* [Node.js](https://nodejs.org/) - Entorno de ejecución para Javascript.
+* [Typescript](https://www.typescriptlang.org/) - Lenguaje de programación tipado.
+* [Express](https://expressjs.com/) - Entorno de trabajo para aplicaciones web.
+* [MongoDB](https://www.mongodb.com/es) - sistema de base de datos NoSQL.
+* [JWT](https://jwt.io/) - JSON Web Token.
 
 <!-- TEAM INFO -->
 ## Equipo

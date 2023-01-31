@@ -5,6 +5,9 @@ import SPInput from "../input/SPInput.vue";
 import SPButton from "../Buttons/SPButton.vue";
 import SPText from "../Text/SPText.vue";
 
+import { useUserStore } from "../../stores/user";
+
+
 const router = useRouter();
 
 function redirectToRegister() {
@@ -24,6 +27,12 @@ const handleEmailTextMessage = () => {
   } else {
     emailtextMessage.value = "";
   }
+};
+
+const userStore = useUserStore();
+
+const login = async () => {
+  await userStore.signIn(email, password);
 };
 
 // const handlePasswordTextMessage = () => {};

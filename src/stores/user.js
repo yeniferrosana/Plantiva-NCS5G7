@@ -3,9 +3,10 @@ import { defineStore } from 'pinia'
 // Import axios to make HTTP requests
 import axios from "axios"
 
-export const useUserStore = defineStore("user",{
+export const useStore = defineStore("user",{
+    id: 'users',
     state: () => ({
-      users: [],
+      users: null,
     }),
     getters: {
       getUsers(state){
@@ -15,9 +16,9 @@ export const useUserStore = defineStore("user",{
     actions: {
       async fetchUsers() {
         try {
-          const data = await axios.get('https://api-jsonserver.vercel.app/users')
+          const data = await axios.get('http://localhost:3000/users')
           const user = await res.json();
-          this.user = user;
+          this.users = user;
         }
         catch (error) {
             alert(error)
@@ -25,7 +26,7 @@ export const useUserStore = defineStore("user",{
         }
       },
       async signUp(email, password) {
-        const res = await fetch("https://api-jsonserver.vercel.app/auth/register", {
+        const res = await fetch("http://localhost:3000/auth/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -33,10 +34,11 @@ export const useUserStore = defineStore("user",{
           body: JSON.stringify({ email, password }),
         });
         const user = await res.json()
-        this.user = user;
+        this.users = user;
       },
       async signIn(email, password) {
-        const res = await fetch("https://api-jsonserver.vercel.app/auth/login", {
+        console.log('hola')
+        const res = await fetch("http://localhost:3000/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -44,7 +46,7 @@ export const useUserStore = defineStore("user",{
           body: JSON.stringify({ email, password }),
         });
         const user = await res.json();
-        this.user = user;
+        this.users = user;
       },
     },
 })

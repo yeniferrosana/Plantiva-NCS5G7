@@ -5,7 +5,7 @@ import SPInput from "../input/SPInput.vue";
 import SPButton from "../Buttons/SPButton.vue";
 import SPText from "../Text/SPText.vue";
 
-import { useUserStore } from "../../stores/user";
+import { useStore } from '@/stores/user.js'
 
 
 const router = useRouter();
@@ -18,6 +18,7 @@ const email = ref("");
 const password = ref("");
 const emailtextMessage = ref("");
 const passwordtextMessage = ref("");
+const error = ref("");
 // eslint-disable-next-line no-useless-escape
 const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -28,11 +29,15 @@ const handleEmailTextMessage = () => {
     emailtextMessage.value = "";
   }
 };
-
-const userStore = useUserStore();
-
+const userStore = useStore();
 const login = async () => {
-  await userStore.signIn(email, password);
+  try { 
+    await userStore.signIn(email.value, password.value);
+    router.push("/home");
+  } catch (err) {
+    error.value = "Error: El usuario o la contraseña son incorrectos.";
+  }
+
 };
 
 // const handlePasswordTextMessage = () => {};
@@ -58,8 +63,11 @@ const login = async () => {
       placeholder="Ingresa tu contraseña"
     />
     <SPText class="hidden text-white">{{ passwordtextMessage }}</SPText>
+    
+    <p v-if="error" class="text-white">{{ error }}</p>
     <SPButton
       class="text-sac-200 mt-10 bg-orange-100 text-green-900 p-2 rounded-md font-bold text-xl"
+      @click="login"
       >Iniciar Sesión</SPButton
     >
     <div class="mt-6 flex gap-2 justify-center">
